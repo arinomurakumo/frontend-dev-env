@@ -1,0 +1,127 @@
+@charset "UTF-8";
+@import "compass";
+
+/*-----------------------------------------------
+mixins
+-----------------------------------------------*/
+// @media
+@mixin mb {
+    @media screen and (max-width : 414px) and (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin mbTab {
+    @media screen and (max-width : 767px) {
+        @content;
+    }
+}
+
+@mixin tab {
+    @media screen and (min-width : 415px) and (max-width : 767px) {
+        @content;
+    }
+}
+
+@mixin tabPc {
+    @media screen and (min-width : 415px) {
+        @content;
+    }
+}
+
+@mixin pc {
+    @media screen and (min-width : 768px) {
+        @content;
+    }
+}
+
+@mixin pcOver {
+    @media screen and (min-width : 970px) {
+        @content;
+    }
+}
+
+// font
+@mixin fontFamilySerif () {
+    font-family: 'HG明朝E','HGSMinchoE', 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+}
+
+@mixin fontFamilySansSerif () {
+    //font-family: 游ゴシック','Yu Gothic','メイリオ','Meiryo','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;
+    font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','游ゴシック','Yu Gothic','メイリオ','Meiryo','ＭＳ Ｐゴシック',sans-serif;
+}
+
+// area
+@mixin tableCol($verticalAlign) {
+    display: table;
+    width: 100%;
+
+    & > * {
+        float: none;
+        display: table-cell;
+        vertical-align: $verticalAlign;
+    }
+}
+
+@mixin col-3-padding() {
+    &:nth-child(1) {
+        padding-right: ($pcNum / 2);
+
+        @include mbTab {
+            padding-right: ($mbNum / 2);
+        }
+    }
+
+    &:nth-child(2) {
+        padding: 0 ($pcNum / 3);
+
+        @include mbTab {
+            padding:  0 ($mbNum / 3);
+        }
+    }
+
+    &:nth-child(3) {
+        padding-left: ($pcNum / 2);
+
+        @include mbTab {
+            padding-left: ($mbNum / 2);
+        }
+    }
+}
+
+@mixin rectangle4to3() {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 75% 0 0;
+
+    & > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:  #b40d0d;
+    }
+}
+
+@mixin rectangle16to9() {
+    position: relative;
+    width: 100%;
+
+    &:before {
+        content:"";
+        display: block;
+        padding-top: 56.25%; // 高さと幅の比を16:9に固定。9/16*100=56.25
+    }
+
+    & > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// page
