@@ -1,0 +1,14 @@
+*~
+*.bak
+.sass-cache
+.DS_Store
+.buildpath
+.project
+.settings
+*.tmproj
+build
+.idea
+/nbproject
+
+# frontend dev
+/public_html/assets/node_modules
