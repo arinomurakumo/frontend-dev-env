@@ -1,0 +1,28 @@
+@charset "UTF-8";
+@import "compass";
+
+// /*-----------------------------------------------
+// variable
+// -----------------------------------------------*/
+// color
+$baseColor:    #000;
+$fontColor:    #fff;
+$keyColor:     #ff0;
+$subColor_1:   #000;
+$subColor_2:   #000;
+$subColor_3:   #000;
+$borderColor:  #000;
+$linkColor:    #000;
+$visitColor:   #000;
+
+// color
+$fontsizeBase: 62.5%; //font-size 1em = 10px on default browser settings
+$fontsizeTitle: 2.99rem;
+$fontsizeSubTitle: $fontsizeTitle * .8;
+
+// size
+$pcNum: 8px;
+$mbNum: 2.5%;
+
+// url
+$imgPath: "/assets/images/min/"; //"http://";
