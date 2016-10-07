@@ -11,8 +11,8 @@
  - ES5にビルドしたjsファイルを圧縮
 
 # Description
-/frontend-web-dev  
-┣ /www      - 公開ディレクトリ  
+/
+┣ /www                 - 公開ディレクトリ  
 　　┣ /assets  
 　　　　┣ /css  
 　　　　┣ /js  
@@ -21,17 +21,18 @@
 　　　　　┗ /admin  
 　　　　　┗ /mobile  
 　　　　　┗ /page  
-　　┗ index.html  
-┣ .bowerrc          - bowerのディレクトリを制御  
-┣ .ruby-version     - 使用するrubyのバージョンを記載しています  
-┣ config.rb         - compassの設定ファイル  
-┣ gulpfile.js       - gulpの設定ファイル  
-┣ package.json      - npmパッケージの設定ファイル  
-┣ README.md  
-┗ webpack.config.js  - webpackの設定ファイル  
+　　┗ index.html
+┣ /frontend-web-dev    - 開発ディレクトリ  
+　　┣ .bowerrc          - bowerのディレクトリを制御  
+　　┣ .ruby-version     - 使用するrubyのバージョンを記載しています  
+　　┣ config.rb         - compassの設定ファイル  
+　　┣ gulpfile.js       - gulpの設定ファイル  
+　　┣ package.json      - npmパッケージの設定ファイル  
+　　┣ README.md  
+　　┗ webpack.config.js  - webpackの設定ファイル  
   
 各設定ファイルに``css``や``js``までのパスが書かれています。  
-必要であれば変更して下さい。  
+必要あれば変更して下さい。  
 
 # Requirement
 - [npm](https://www.npmjs.com)
@@ -58,12 +59,13 @@
 - gulp-plumber
 - gulp-rename
 - gulp-webpack
+- path
 
 ## Usage
-開発環境に``frontend-web-dev``を置いて``frontend-web-dev``に移動します。
+frontend-web-devを利用したい任意のディレクトリに、クローンしたディレクトリをコピーして移動します。
 
 ```
-$ cd /Users/username/workspace/frontend-web-dev
+$ cd /Users/username/workspace/your-project/frontend-web-dev
 ```
 
 gulpとpackage.json内の必要なプラグインをインストール
@@ -102,10 +104,10 @@ $ bower init
 下記でパッケージを追加できます
 
 ```
-$ bower install package_name --save-dev
+$ bower install package-name --save-dev
 ```
 
-パッケージをインストールすると``/frontend-web-dev/assets/vender/``にディレクトリが生成されます
+パッケージをインストールすると``/www/assets/vendor/``にディレクトリが生成されます
 
 ### Ruby
 Rubyはv2.3.0を使用します。Compass と Autoprefixer を使用します。  
@@ -148,24 +150,25 @@ ECMAScript 6が使用可能です。
 ``/www/assets/js/app.js``をエディター等で保存すると、webpackで結合しECMAScript 5へ変換、圧縮ファイルも生成します。  
 下記2ファイルが生成されます。  
 
-``/www/assets/js/es6/app.js``  
-``/www/assets/js/es6/app.min.js``  
+``/www/assets/js/bundle/app.js``  
+``/www/assets/js/bundle/app.min.js``  
 
 ECMAScript 6で記述したいファイルを追加したい場合は、``webpack.config.js``の``entry``に  
 
 ```
   entry: {
-    app: './www/assets/js/app.js',
-    hoge: './www/assets/js/hoge.js',
+    app: '../www/assets/js/app.js',
+    hoge: '../www/assets/js/hoge.js',
   },
 ```
 
-上記の様に``hoge: './www/assets/js/hoge.js',``とjsファイル名の名前とパスを追加してください。  
-app.jsと同じ様に/es6/内にhoge.min.jsも生成されます。  
+上記の様に``hoge: '../www/assets/js/hoge.js',``とjsファイル名の名前とパスを追加してください。  
+app.jsと同じ様に/bundle/内にhoge.min.jsも生成されます。  
 
 
 ### images
-``/www/assets/images/``ディレクトリ内に画像を入れると、``/min/``が生成され、圧縮された同名のファイルも生成されます。
+``/frontend-web-dev/images/``ディレクトリ内に画像を入れると、  
+``/www/assets/images/``内に圧縮された同名のファイルも生成されます。
 
 
 ## Install
