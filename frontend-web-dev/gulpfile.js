@@ -12,7 +12,8 @@
  */
 
 // gulpプラグインの読み込み
-var path         = 'www/assets';
+var path         = require('path')
+var assets_dir   = path.join(process.cwd(), '../www/assets');
 var gulp         = require('gulp');
 var imagemin     = require('gulp-imagemin');
 var compass      = require('gulp-compass');
@@ -26,127 +27,128 @@ var webpack      = require('gulp-webpack');
 
 // imageMinTask
 gulp.task('imagemin', function() {
-    gulp.src(path + '/images/*.+(jpg|jpeg|png|gif|svg)')
-        .pipe(plumber({
+    gulp.src('images/*.+(jpg|jpeg|png|gif|svg)')
+    .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(imagemin())
-    .pipe(gulp.dest(path + '/images/min/'));
+    .pipe(gulp.dest(assets_dir + '/images/'));
 });
 
 gulp.task('imageminMb', function() {
-    gulp.src(path + '/images/mobile/*.+(jpg|jpeg|png|gif|svg)')
-        .pipe(plumber({
+    gulp.src('images/mobile/*.+(jpg|jpeg|png|gif|svg)')
+    .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(imagemin())
-    .pipe(gulp.dest(path + '/images/mobile/min/'));
+    .pipe(gulp.dest(assets_dir + '/images/mobile/'));
 });
 
 // compass
 gulp.task('compass', function(){
-    gulp.src(path + '/sass/*.scss')
+    gulp.src(assets_dir + '/sass/*.scss')
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(compass({
         config_file: 'config.rb',
+        project_path: 'frontend',
         comments: false,
-        css: path + '/css/',
-        sass: path + '/sass/'
+        css: assets_dir + '/css/',
+        sass: assets_dir + '/sass/'
     }))
     .pipe(autoprefixer())
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(path + '/css/'));
+    .pipe(gulp.dest(assets_dir + '/css/'));
 });
 
 gulp.task('compassAdmin', function(){
-    gulp.src(path + '/sass/admin/*.scss')
+    gulp.src(assets_dir + '/sass/admin/*.scss')
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(compass({
         config_file: 'config.admin.rb',
         comments: false,
-        css: path + '/css/admin/',
-        sass: path + '/sass/admin/'
+        css: assets_dir + '/css/admin/',
+        sass: assets_dir + '/sass/admin/'
     }))
     .pipe(autoprefixer())
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(path + '/css/admin/'));
+    .pipe(gulp.dest(assets_dir + '/css/admin/'));
 });
 
 gulp.task('compassMb', function(){
-    gulp.src(path + '/sass/mobile/*.scss')
+    gulp.src(assets_dir + '/sass/mobile/*.scss')
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(compass({
         config_file: 'config.mobile.rb',
         comments: false,
-        css: path + '/css/mobile/',
-        sass: path + '/sass/mobile/'
+        css: assets_dir + '/css/mobile/',
+        sass: assets_dir + '/sass/mobile/'
     }))
     .pipe(autoprefixer())
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(path + '/css/mobile/'));
+    .pipe(gulp.dest(assets_dir + '/css/mobile/'));
 });
 
 // jsmin
 // ES6にコンパイルせず、個別にminが必要な場合はこれを呼び出す
 gulp.task('jsmin', function() {
-  gulp.src(path + '/js/es6/*.js')
+  gulp.src(assets_dir + '/js/bundle/*.js')
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(jsmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(path + '/js/es6/'));
+    .pipe(gulp.dest(assets_dir + '/js/bundle/'));
 });
 
 gulp.task('jsminMb', function() {
-  gulp.src(path + '/js/es6/mb/*.js')
+  gulp.src(assets_dir + '/js/bundle/mobile/*.js')
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(jsmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(path + '/js/es6/mb/'));
+    .pipe(gulp.dest(assets_dir + '/js/bundle/mobile/'));
 });
 
 // webpack
 gulp.task('webpack', function () {
-    gulp.src(path + '/js/*.js')
+    gulp.src(assets_dir + '/js/*.js')
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(webpack(require('./webpack.config.js')))
-    .pipe(gulp.dest(path + '/js/es6/'))
+    .pipe(gulp.dest(assets_dir + '/js/bundle/'))
     .pipe(jsmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(path + '/js/es6/'));
+    .pipe(gulp.dest(assets_dir + '/js/bundle/'));
 });
 
 // watch
 gulp.task('watch', function(){
     // css
-    gulp.watch(path + '/sass/*.scss', ['compass'], function(event) {});
-    gulp.watch(path + '/sass/**/*.scss', ['compass'], function(event) {});
-    // gulp.watch(path + '/sass/admin/*.scss', ['compassAdmin'], function(event) {});
-    // gulp.watch(path + '/sass/mobile/*.scss', ['compassMb'], function(event) {});
-    // gulp.watch(path + '/sass/mobile/page/**/*.scss', ['compassMb'], function(event) {});
+    gulp.watch(assets_dir + '/sass/*.scss', ['compass'], function(event) {});
+    gulp.watch(assets_dir + '/sass/**/*.scss', ['compass'], function(event) {});
+    // gulp.watch(assets_dir + '/sass/admin/*.scss', ['compassAdmin'], function(event) {});
+    // gulp.watch(assets_dir + '/sass/mobile/*.scss', ['compassMb'], function(event) {});
+    // gulp.watch(assets_dir + '/sass/mobile/page/**/*.scss', ['compassMb'], function(event) {});
 
     // image
-    gulp.watch(path + '/images/*.+(jpg|jpeg|png|gif|svg)', ['imagemin'], function(event) {});
-    // gulp.watch(path + '/images/sp/*.+(jpg|jpeg|png|gif|svg)', ['imageminMb'], function(event) {});
+    gulp.watch('images/*.+(jpg|jpeg|png|gif|svg)', ['imagemin'], function(event) {});
+    // gulp.watch(assets_dir + '/images/sp/*.+(jpg|jpeg|png|gif|svg)', ['imageminMb'], function(event) {});
 
     // javascript
-    gulp.watch(path + '/js/*.js', ['webpack'], function(event) {});
-    // gulp.watch(path + '/js/*.js', ['jsmin'], function(event) {});
-    // gulp.watch(path + '/js/mb/*.js', ['jsminMb'], function(event) {});
+    gulp.watch(assets_dir + '/js/*.js', ['webpack'], function(event) {});
+    // gulp.watch(assets_dir + '/js/*.js', ['jsmin'], function(event) {});
+    // gulp.watch(assets_dir + '/js/mobile/*.js', ['jsminMb'], function(event) {});
 });
 
 gulp.task('default', ['watch']);
