@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path    = require('path');
 
 module.exports = {
   entry: {
@@ -9,15 +10,19 @@ module.exports = {
     filename: "[name].js"
   },
   devtool: 'inline-source-map',
+  resolveLoader: {
+    root: path.join(__dirname, "node_modules")
+  },
   module: {
     loaders: [
       {
         include: [
-          __dirname,
+          path.resolve(__dirname, "../www/assets/js"),
         ],
         test: /\.js/,
         exclude: /node_modules|bower_components/,
-        loaders: ['babel-loader']
+        loaders: ['babel-loader'],
+        presets: ['es2015']
       }
     ]
   },
