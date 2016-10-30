@@ -63,29 +63,92 @@ mixins
     }
 }
 
-@mixin col-3-padding() {
-    &:nth-child(1) {
-        padding-right: ($pcNum / 2);
+@mixin col_2($num) {
+    &:nth-child(odd) {
+        padding-right: ($num);
+    }
 
-        @include mbTab {
-            padding-right: ($mbNum / 2);
-        }
+    &:nth-child(even) {
+        padding-left: ($num);
+    }
+
+    &:nth-child(3n+1) {
+        clear: both;
+    }
+
+    &:nth-child(n+3) {
+        padding-top: ($num * 2);
+    }
+}
+
+@mixin col_3($num) {
+    &:nth-child(3n+1) {
+        clear: both;
+        padding-right: ($num);
+    }
+
+    &:nth-child(3n+2) {
+        padding: 0 ($num / 2);
+    }
+
+    &:nth-child(3n) {
+        padding-left: ($num);
+    }
+
+    &:nth-child(n+4) {
+        padding-top: ($num * 2);
+    }
+}
+
+@mixin col_4($num) {
+    &:nth-child(1) {
+        padding-right: ($num * 2);
     }
 
     &:nth-child(2) {
-        padding: 0 ($pcNum / 3);
-
-        @include mbTab {
-            padding:  0 ($mbNum / 3);
-        }
+        padding: 0 ($num);
     }
 
     &:nth-child(3) {
-        padding-left: ($pcNum / 2);
+        padding: 0 ($num);
+    }
 
-        @include mbTab {
-            padding-left: ($mbNum / 2);
-        }
+    &:nth-child(4) {
+        padding-left: ($num * 2);
+    }
+}
+
+@mixin col_5($num) {
+    &:nth-child(1) {
+        padding-right: ($num);
+    }
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+        padding: 0 ($num / 2);
+    }
+
+    &:nth-child(5) {
+        padding-left: ($num);
+    }
+}
+
+@mixin col_7($num) {
+    &:nth-child(1) {
+        padding-right: ($num * 2);
+    }
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6) {
+        padding: 0 ($num);
+    }
+
+    &:nth-child(7) {
+        padding-left: ($num * 2);
     }
 }
 
@@ -121,6 +184,26 @@ mixins
         left: 0;
         width: 100%;
         height: 100%;
+    }
+}
+
+@mixin placeholderColor($color) {
+    &:placeholder-shown {
+        color: $color;
+    }
+    &::-webkit-input-placeholder {
+        color:$color;
+    }
+    &:-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+    &::-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color:$color;
     }
 }
 
