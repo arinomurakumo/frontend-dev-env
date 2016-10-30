@@ -16,13 +16,17 @@
 　　┣ /assets  
 　　　　┣ /css  
 　　　　┣ /js  
-　　　　┣ /images  
-　　　　┗ /sass  
-　　　　　┗ /admin  
-　　　　　┗ /mobile  
-　　　　　┗ /page  
-　　┗ index.html
+　　　　　┗ /bundle  
+　　　　┗ /images  
+　　┗ index.html  
 ┣ /frontend-web-dev    - 開発ディレクトリ  
+　　┣ /assets    
+　　　　┣ /images  
+　　　　┣ /js  
+　　　　┗ /sass  
+　　　　　┣ /admin  
+　　　　　┣ /mobile  
+　　　　　┗ /page  
 　　┣ .bowerrc          - bowerのディレクトリを制御  
 　　┣ .ruby-version     - 使用するrubyのバージョンを記載しています  
 　　┣ config.rb         - compassの設定ファイル  
@@ -133,7 +137,7 @@ $ gulp
 
 
 ### css
-``/www/assets/sass/style.scss``をエディター等で保存すると、  
+開発ディレクトリの``/frontend-web-dev/assets/sass/style.scss``をエディター等で保存すると、  
 下記2ファイルが生成されます。  
 
 ``/www/assets/css/style.css``  
@@ -142,12 +146,12 @@ $ gulp
 Autoprefixerで自動でプレフィックスが付与されます  
 
 * モバイルサイトや管理画面別を分けて開発する際は、  
-  ``gulpfile.js``のcompassAdmin や compassMb のコメントアウトを外し、  
-  config.admin.rb や config.mobile.rb 等のファイルを作成し、それぞれパスを指定します。
+  ``gulpfile.js``のcompassAdmin や compassMobile のコメントアウトを外し、  
+  config.admin.rb や config.mobile.rb 等のファイルを必要に応じて作成し、それぞれパスを指定します。
 
 ### javascript
 ECMAScript 6が使用可能です。  
-``/www/assets/js/app.js``をエディター等で保存すると、webpackで結合しECMAScript 5へ変換、圧縮ファイルも生成します。  
+開発ディレクトリの``/frontend-web-dev/assets/js/app.js``をエディター等で保存すると、webpackがECMAScript 5へ変換、圧縮ファイルも生成します。  
 下記2ファイルが生成されます。  
 
 ``/www/assets/js/bundle/app.js``  
@@ -167,7 +171,7 @@ app.jsと同じ様に/bundle/内にhoge.min.jsも生成されます。
 
 
 ### images
-``/frontend-web-dev/images/``ディレクトリ内に画像を入れると、  
+``/frontend-web-dev/assets/images/``ディレクトリ内に画像を入れると、  
 ``/www/assets/images/``内に圧縮された同名のファイルも生成されます。
 
 
