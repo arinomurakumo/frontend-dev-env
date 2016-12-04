@@ -16,13 +16,16 @@ module.exports = {
   module: {
     loaders: [
       {
+        loader: ['babel-loader'],
         include: [
           path.resolve(__dirname, "./assets/js"),
         ],
         test: /\.js/,
         exclude: /node_modules|bower_components/,
-        loaders: ['babel-loader'],
-        presets: ['es2015']
+        presets: ['es2015'],
+        query  : {
+          compact: false,
+        },
       }
     ]
   },
