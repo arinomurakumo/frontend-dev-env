@@ -1,17 +1,16 @@
 @charset "UTF-8";
-@import "compass";
 
 /*-----------------------------------------------
 reset
 -----------------------------------------------*/
 * {
-    @include box-sizing(border-box);
-    -ms-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     margin: 0;
     padding: 0;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
 }
 
 img {
@@ -128,7 +127,7 @@ time {
 /* chorome */
 input:-webkit-autofill,
 textarea:-webkit-autofill {
-    @include box-shadow(0 0 0 1000px #fff inset);
+    box-shadow: 0 0 0 1000px #fff inset;
 }
 
 /*
