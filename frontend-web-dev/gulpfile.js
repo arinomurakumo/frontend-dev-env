@@ -3,11 +3,11 @@
  *
  *
  * - タスクを直列処理する
- * - ScssはCompassで自動コンパイル
+ * - Scssはlibsassで自動コンパイル
  * - cssはAutoprefixerで自動でプレフィックスを付与
  * - css/imageのデータ容量を圧縮する
- * - BABELでJavaScriptをES6で記述も可能
- * - ES6のビルドはwebpackでJavaScriptを管理
+ * - BABELでJavaScriptをES2015で記述も可能
+ * - ES2015のビルドはwebpackでJavaScriptを管理
  * - ES5にビルドしたjsファイルを圧縮
  */
 
@@ -17,7 +17,7 @@ var dev_dir      = './assets';
 var assets_dir   = path.join(process.cwd(), '../www/assets');
 var gulp         = require('gulp');
 var imagemin     = require('gulp-imagemin');
-var compass      = require('gulp-compass');
+var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var cssmin       = require('gulp-cssmin');
 var jsmin        = require('gulp-jsmin');
@@ -42,58 +42,59 @@ gulp.task('imageminMb', function() {
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
     .pipe(imagemin())
-    .pipe(gulp.dest(assets_dir + '/images/mobile/min/'));
+    .pipe(gulp.dest(assets_dir + '/images/mobile/'));
 });
 
-// compass
-gulp.task('compass', function(){
+// sass
+gulp.task('sass', function(){
     gulp.src(dev_dir + '/sass/*.scss')
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
-    .pipe(compass({
-        config_file: 'config.rb',
-        project_path: 'frontend-web-dev',
-        comments: false,
-        css: assets_dir + '/css/',
-        sass: dev_dir + '/sass/'
-    }))
-    .pipe(autoprefixer())
+    .pipe(sass({
+        outputStyle: 'expanded'
+    }).on('error', sass.logError))
+    .pipe(autoprefixer({
+        browsers: ['last 2 version', 'iOS >= 8.1', 'Android >= 4.0'],
+        cascade: false
+      }))
+    .pipe(gulp.dest(assets_dir + '/css/'))
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(assets_dir + '/css/'));
 });
 
-gulp.task('compassAdmin', function(){
+gulp.task('sassAdmin', function(){
     gulp.src(dev_dir + '/sass/admin/*.scss')
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
-    .pipe(compass({
-        config_file: 'config.rb',
-        project_path: 'frontend-web-dev',
-        comments: false,
-        css: assets_dir + '/css/admin/',
-        sass: dev_dir + '/sass/admin/'
-    }))
-    .pipe(autoprefixer())
+    .pipe(sass({
+        outputStyle: 'expanded'
+    }).on('error', sass.logError))
+    .pipe(autoprefixer({
+        browsers: ['last 2 version', 'iOS >= 8.1', 'Android >= 4.0'],
+        cascade: false
+      }))
+    .pipe(gulp.dest(assets_dir + '/css/admin/'))
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(assets_dir + '/css/admin/'));
 });
 
-gulp.task('compassMb', function(){
+gulp.task('sassMobile', function(){
     gulp.src(dev_dir + '/sass/mobile/*.scss')
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
-    .pipe(compass({
-        config_file: 'config.mobile.rb',
-        comments: false,
-        css: assets_dir + '/css/mobile/',
-        sass: assets_dir + '/sass/mobile/'
-    }))
-    .pipe(autoprefixer())
+    .pipe(sass({
+        outputStyle: 'expanded'
+    }).on('error', sass.logError))
+    .pipe(autoprefixer({
+        browsers: ['last 2 version', 'iOS >= 8.1', 'Android >= 4.0'],
+        cascade: false
+      }))
+    .pipe(gulp.dest(assets_dir + '/css/mobile/'))
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(assets_dir + '/css/mobile/'));
@@ -137,15 +138,15 @@ gulp.task('webpack', function () {
 // watch
 gulp.task('watch', function(){
     // css
-    gulp.watch(dev_dir + '/sass/*.scss', ['compass'], function(event) {});
-    gulp.watch(dev_dir + '/sass/**/*.scss', ['compass'], function(event) {});
-    // gulp.watch(dev_dir + '/sass/admin/*.scss', ['compassAdmin'], function(event) {});
-    // gulp.watch(dev_dir + '/sass/admin/**/*.scss', ['compassAdmin'], function(event) {});
-    // gulp.watch(dev_dir + '/sass/mobile/*.scss', ['compassMb'], function(event) {});
-    // gulp.watch(dev_dir + '/sass/mobile/page/**/*.scss', ['compassMb'], function(event) {});
+    gulp.watch(dev_dir + '/sass/*.scss', ['sass'], function(event) {});
+    gulp.watch(dev_dir + '/sass/**/*.scss', ['sass'], function(event) {});
+    // gulp.watch(dev_dir + '/sass/admin/*.scss', ['sassAdmin'], function(event) {});
+    // gulp.watch(dev_dir + '/sass/admin/**/*.scss', ['sassAdmin'], function(event) {});
+    // gulp.watch(dev_dir + '/sass/mobile/*.scss', ['sassMobile'], function(event) {});
+    // gulp.watch(dev_dir + '/sass/mobile/**/**/*.scss', ['sassMobile'], function(event) {});
 
     // image
-    gulp.watch('images/*.+(jpg|jpeg|png|gif|svg)', ['imagemin'], function(event) {});
+    gulp.watch(dev_dir + 'images/*.+(jpg|jpeg|png|gif|svg)', ['imagemin'], function(event) {});
     // gulp.watch(dev_dir + '/images/sp/*.+(jpg|jpeg|png|gif|svg)', ['imageminMb'], function(event) {});
 
     // javascript

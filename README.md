@@ -1,13 +1,13 @@
-フロントエンド開発環境の構築[Babel / Compass / Webpack / gulp]
+フロントエンド開発環境の構築[Babel / libsass / Webpack / gulp]
 ====
 
 # Overview
  - タスクを直列処理する
- - ScssはCompassで自動コンパイル
+ - Scssはlibsassで自動コンパイル
  - cssはAutoprefixerで自動でプレフィックスを付与
  - css/imageのデータ容量を圧縮する
- - BABELでJavaScriptをES6で記述も可能
- - ES6のビルドはwebpackでJavaScriptを管理
+ - BABELでJavaScriptをES2015で記述も可能
+ - ES2015のビルドはwebpackでJavaScriptを管理
  - ES5にビルドしたjsファイルを圧縮
 
 # Description
@@ -15,11 +15,14 @@
 ┣ /www                 - 公開ディレクトリ  
 　　┣ /assets  
 　　　　┣ /css  
+　　　　　┣ /admin  
+　　　　　┣ /mobile  
+　　　　　┗ /page  
 　　　　┣ /js  
 　　　　　┗ /bundle  
 　　　　┗ /images  
 　　┗ index.html  
-┣ /frontend-web-dev    - 開発ディレクトリ  
+┗ /frontend-web-dev    - 開発ディレクトリ  
 　　┣ /assets    
 　　　　┣ /images  
 　　　　┣ /js  
@@ -28,8 +31,6 @@
 　　　　　┣ /mobile  
 　　　　　┗ /page  
 　　┣ .bowerrc          - bowerのディレクトリを制御  
-　　┣ .ruby-version     - 使用するrubyのバージョンを記載しています  
-　　┣ config.rb         - compassの設定ファイル  
 　　┣ gulpfile.js       - gulpの設定ファイル  
 　　┣ package.json      - npmパッケージの設定ファイル  
 　　┣ README.md  
@@ -46,15 +47,11 @@
 		- babel-core
 		- babel-loader
 - [bower](http://gulpjs.com/)
-- Ruby plugins
-	- [Compass](http://compass-style.org)
-	- [Autoprefixer](https://github.com/ai/autoprefixer)
 
 ## gulp plugins
 - babel-core
 - babel-loader
 - gulp
-- gulp-compass
 - gulp-autoprefixer
 - gulp-cssmin
 - gulp-imagemin
@@ -62,6 +59,7 @@
 - gulp-notify
 - gulp-plumber
 - gulp-rename
+- gulp-sass
 - gulp-webpack
 - path
 
@@ -84,20 +82,6 @@ $ npm install -g
 $ npm install -g bower
 ```
 
-Ruby環境がない場合はrbenv等で環境を構築します。  
-[Homebrewをインストール](http://brew.sh/index_ja.html)
-
-```
-$ brew update
-$ brew install rbenv ruby-build
-
-$ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
- 
-$ source ~/.bash_profile
-$ rbenv install 2.3.0
-$ rbenv local 2.3.0
-```
-
 
 初期化
 
@@ -113,15 +97,6 @@ $ bower install package-name --save-dev
 
 パッケージをインストールすると``/www/assets/vendor/``にディレクトリが生成されます
 
-### Ruby
-Rubyはv2.3.0を使用します。Compass と Autoprefixer を使用します。  
-``Compass`` と ``Autoprefixer`` をインストールします。
-
-```
-$ gem install compass
-$ gem install autoprefixer-rails
-$ gem install csso-rails
-```
 
 ### gulp
 
@@ -143,14 +118,13 @@ $ gulp
 ``/www/assets/css/style.css``  
 ``/www/assets/css/style.min.css``  
 
-Autoprefixerで自動でプレフィックスが付与されます  
+gulp-autoprefixerで自動でプレフィックスが付与されます  
 
 * モバイルサイトや管理画面別を分けて開発する際は、  
-  ``gulpfile.js``のcompassAdmin や compassMobile のコメントアウトを外し、  
-  config.admin.rb や config.mobile.rb 等のファイルを必要に応じて作成し、それぞれパスを指定します。
+  ``gulpfile.js``のsassAdmin や sassMobile のコメントアウトを外し、それぞれパスを指定します。
 
 ### javascript
-ECMAScript 6が使用可能です。  
+ECMAScript 2015~が使用可能です。  
 開発ディレクトリの``/frontend-web-dev/assets/js/app.js``をエディター等で保存すると、webpackがECMAScript 5へ変換、圧縮ファイルも生成します。  
 下記2ファイルが生成されます。  
 
