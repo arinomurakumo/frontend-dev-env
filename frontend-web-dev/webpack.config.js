@@ -33,5 +33,10 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   plugins: [
+    // new webpack.ProvidePlugin({
+    //   $: "jquery",
+    //   jQuery: "jquery",
+    //   "window.jQuery": "jquery",
+    // }),
   ]
 };
