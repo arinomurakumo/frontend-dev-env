@@ -35,7 +35,7 @@ mixins
 }
 
 @mixin pcOver {
-    @media screen and (min-width : 970px) {
+    @media screen and (min-width : 1200px) {
         @content;
     }
 }
@@ -48,6 +48,11 @@ mixins
 @mixin fontFamilySansSerif () {
     //font-family: 游ゴシック','Yu Gothic','メイリオ','Meiryo','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;
     font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','游ゴシック','Yu Gothic','メイリオ','Meiryo','ＭＳ Ｐゴシック',sans-serif;
+    font-feature-settings: "palt";
+    -webkit-font-feature-settings: "pkna";
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        font-feature-settings: "palt";
+    }
 }
 
 // area
@@ -203,6 +208,77 @@ mixins
     }
     &:-ms-input-placeholder {
         color:$color;
+    }
+}
+
+@mixin paddingAll($p, $m) {
+    @include pc {
+        padding: $p;
+    }
+
+    @include mbTab {
+        padding: $m;
+    }
+}
+
+@mixin paddingSide($p, $m) {
+    @include pc {
+        padding: 0 $p;
+    }
+
+    @include mbTab {
+        padding: 0 $m;
+    }
+}
+
+@mixin paddingVertical($p, $m) {
+    @include pc {
+        padding: $p 0;
+    }
+
+    @include mbTab {
+        padding: $m 0;
+    }
+}
+
+@mixin paddingTop($p, $m) {
+    @include pc {
+        padding-top: $p;
+    }
+
+    @include mbTab {
+        padding-top: $m;
+    }
+}
+
+
+@mixin paddingLeft($p, $m) {
+    @include pc {
+        padding-left: $p;
+    }
+
+    @include mbTab {
+        padding-left: $m;
+    }
+}
+
+@mixin paddingRight($p, $m) {
+    @include pc {
+        padding-right: $p;
+    }
+
+    @include mbTab {
+        padding-right: $m;
+    }
+}
+
+@mixin paddingBottom($p, $m) {
+    @include pc {
+        padding-bottom: $p;
+    }
+
+    @include mbTab {
+        padding-bottom: $m;
     }
 }
 
