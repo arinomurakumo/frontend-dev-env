@@ -4,13 +4,13 @@
 reset
 -----------------------------------------------*/
 * {
-    text-size-adjust: 100%;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    box-sizing: border-box;
+    text-size-adjust: 100%;
 }
 
 img {
@@ -127,7 +127,7 @@ time {
 /* chorome */
 input:-webkit-autofill,
 textarea:-webkit-autofill {
-    box-shadow: 0 0 0 1000px #fff inset;
+    box-shadow:0 0 0 1000px #fff inset;
 }
 
 /*
