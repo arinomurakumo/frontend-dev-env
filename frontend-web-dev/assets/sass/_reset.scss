@@ -6,11 +6,10 @@ reset
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+    box-sizing: border-box;
 }
 
 img {
@@ -127,7 +126,7 @@ time {
 /* chorome */
 input:-webkit-autofill,
 textarea:-webkit-autofill {
-    box-shadow:0 0 0 1000px #fff inset;
+    box-shadow: 0 0 0 1000px #fff inset;
 }
 
 /*
@@ -220,21 +219,6 @@ button {
   overflow: visible;
 }
 
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: 0;
-  padding: 0;
-}
-
-button:-moz-focusring,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  outline: 1px dotted ButtonText;
-}
-
 button,
 html [type="button"],
 [type="reset"],
@@ -309,16 +293,4 @@ canvas,
 progress,
 video {
   display: inline-block;
-}
-
-::-moz-selection {
-  background-color: #b3d4fc;
-  color: #fff;
-  text-shadow: none;
-}
-
-::selection {
-  background-color: #b3d4fc;
-  color: #fff;
-  text-shadow: none;
 }
