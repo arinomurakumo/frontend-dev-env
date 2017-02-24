@@ -1,5 +1,62 @@
 @charset "UTF-8";
 
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// // Core variables and mixins
+// @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+// @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+// // // Reset and dependencies
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/print";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
+
+// // // Core CSS
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/type";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/code";
+// @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/tables";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/forms";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+
+// // // Components
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/navs";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/navbar";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/pagination";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/pager";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/labels";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/badges";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/alerts";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/media";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/list-group";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/panels";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/wells";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/close";
+
+// // // Components w/ JavaScript
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/carousel";
+
+// // // Utility classes
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+// // @import "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
 /*
 FOX CSS 3.0.0
 by Ronan Levesque - CC BY 3.0 license
@@ -7,16 +64,19 @@ by Ronan Levesque - CC BY 3.0 license
 Includes Normalize by Nicolas Gallagher
 More info => http://necolas.github.io/normalize.css/
 */
-
 // VARIABLES & MIXINS
 
-@import "../vendor/bootstrap-sass/assets/variables";
-@import "../vendor/bootstrap-sass/assets/mixins";
+@import "../vendor/fox-css/sass/variables";
+@import "../vendor/fox-css/sass/mixins";
 
 // IMPORT CHOSEN FOX CSS MODULES
 
-// @import "../vendor/bootstrap-sass/assets/resets";
-// @import "../vendor/bootstrap-sass/assets/normalize";
-@import "../vendor/bootstrap-sass/assets/utils";
-@import "../vendor/bootstrap-sass/assets/grid";
-@import "../vendor/bootstrap-sass/assets/grid-ie9";
+//@import "../vendor/fox-css/sass/resets";
+//@import "../vendor/fox-css/sass/normalize";
+@import "../vendor/fox-css/sass/utils";
+@import "../vendor/fox-css/sass/grid";
+@import "../vendor/fox-css/sass/grid-ie9";
+
+
+@import "../vendor/slick/slick/slick.scss";
+@import "../vendor/slick/slick/slick-theme.scss";

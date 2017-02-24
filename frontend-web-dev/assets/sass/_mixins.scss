@@ -34,31 +34,63 @@ mixins
     }
 }
 
-@mixin pcOver {
-    @media screen and (min-width : 1200px) {
+@mixin md {
+    @media screen and (min-width : 1024px) {
         @content;
     }
 }
 
-// font
-@mixin fontFamilySerif () {
-    font-family: 'HG明朝E','HGSMinchoE', 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
-}
-
-@mixin fontFamilySansSerif () {
-    //font-family: 游ゴシック','Yu Gothic','メイリオ','Meiryo','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;
-    font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','游ゴシック','Yu Gothic','メイリオ','Meiryo','ＭＳ Ｐゴシック',sans-serif;
-    font-feature-settings: "palt";
-    -webkit-font-feature-settings: "pkna";
-    @media screen and (-webkit-min-device-pixel-ratio:0) {
-        font-feature-settings: "palt";
+@mixin lg {
+    @media screen and (min-width : 1380px) {
+        @content;
     }
 }
 
-// area
+@mixin xlg {
+    @media screen and (min-width : 1980px) {
+        @content;
+    }
+}
+
+
+// font
+@mixin fontFamilySerif() {
+    font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+}
+
+@mixin fontFamilySansSerif() {
+    //font-family: 游ゴシック','Yu Gothic','メイリオ','Meiryo','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;
+    font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ','Meiryo','游ゴシック','Yu Gothic','ＭＳ Ｐゴシック',sans-serif;
+}
+
+// accessory
+@mixin placeholderColor($color) {
+    &:placeholder-shown {
+        color: $color;
+    }
+
+    &::-webkit-input-placeholder {
+        color:$color;
+    }
+
+    &:-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+
+    &::-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+        color:$color;
+    }
+}
+
+// box
 @mixin tableCol($verticalAlign) {
     display: table;
-    width: 100%;
 
     & > * {
         float: none;
@@ -67,95 +99,112 @@ mixins
     }
 }
 
+@mixin EqualWidthColumn($num) {
+    margin-left: -$num;
+    margin-right: -$num;
+
+    & > * {
+        padding: 0 $num;
+    }
+}
+
 @mixin col_2($num) {
-    &:nth-child(odd) {
-        padding-right: ($num);
-    }
+    @include EqualWidthColumn($num);
 
-    &:nth-child(even) {
-        padding-left: ($num);
-    }
-
-    &:nth-child(3n+1) {
+    & > *:nth-child(2n+1) {
         clear: both;
     }
 
-    &:nth-child(n+3) {
-        padding-top: ($num * 2);
+    & > *:nth-child(n+3) {
+        padding-top: ($num);
     }
 }
 
 @mixin col_3($num) {
-    &:nth-child(3n+1) {
+    @include EqualWidthColumn($num);
+
+    & > *:nth-child(3n+1) {
         clear: both;
-        padding-right: ($num);
     }
 
-    &:nth-child(3n+2) {
-        padding: 0 ($num / 2);
-    }
-
-    &:nth-child(3n) {
-        padding-left: ($num);
-    }
-
-    &:nth-child(n+4) {
-        padding-top: ($num * 2);
+    & > *:nth-child(n+4) {
+        padding-top: ($num);
     }
 }
 
 @mixin col_4($num) {
-    &:nth-child(1) {
-        padding-right: ($num * 2);
+    @include EqualWidthColumn($num);
+
+    & > *:nth-child(4n+1) {
+        clear: both;
     }
 
-    &:nth-child(2) {
-        padding: 0 ($num);
-    }
-
-    &:nth-child(3) {
-        padding: 0 ($num);
-    }
-
-    &:nth-child(4) {
-        padding-left: ($num * 2);
+    & > *:nth-child(n+5) {
+        padding-top: ($num);
     }
 }
 
 @mixin col_5($num) {
-    &:nth-child(1) {
-        padding-right: ($num);
+    @include EqualWidthColumn($num);
+
+    & > *:nth-child(5n+1) {
+        clear: both;
     }
 
-    &:nth-child(2),
-    &:nth-child(3),
-    &:nth-child(4) {
-        padding: 0 ($num / 2);
+    & > *:nth-child(n+6) {
+        padding-top: ($num);
+    }
+}
+
+@mixin col_6($num) {
+    @include EqualWidthColumn($num);
+
+    & > *:nth-child(6n+1) {
+        clear: both;
     }
 
-    &:nth-child(5) {
-        padding-left: ($num);
+    & > *:nth-child(n+7) {
+        padding-top: ($num);
     }
 }
 
 @mixin col_7($num) {
-    &:nth-child(1) {
-        padding-right: ($num * 2);
+    @include EqualWidthColumn($num);
+
+    & > *:nth-child(7n+1) {
+        clear: both;
     }
 
-    &:nth-child(2),
-    &:nth-child(3),
-    &:nth-child(4),
-    &:nth-child(5),
-    &:nth-child(6) {
-        padding: 0 ($num);
-    }
-
-    &:nth-child(7) {
-        padding-left: ($num * 2);
+    & > *:nth-child(n+8) {
+        padding-top: ($num);
     }
 }
 
+@mixin col_8($num) {
+    @include EqualWidthColumn($num);
+
+    & > *:nth-child(8n+1) {
+        clear: both;
+    }
+
+    & > *:nth-child(n+9) {
+        padding-top: ($num);
+    }
+}
+
+@mixin col_9($num) {
+    @include EqualWidthColumn($num);
+
+    & > *:nth-child(9n+1) {
+        clear: both;
+    }
+
+    & > *:nth-child(n+10) {
+        padding-top: ($num);
+    }
+}
+
+// fixed layout
 @mixin rectangle4to3() {
     position: relative;
     width: 100%;
@@ -175,12 +224,8 @@ mixins
 @mixin rectangle16to9() {
     position: relative;
     width: 100%;
-
-    &:before {
-        content:"";
-        display: block;
-        padding-top: 56.25%; // 高さと幅の比を16:9に固定。9/16*100=56.25
-    }
+    height: 100%;
+    padding: 56.25% 0 0;
 
     & > * {
         position: absolute;
@@ -191,27 +236,48 @@ mixins
     }
 }
 
-@mixin placeholderColor($color) {
-    &:placeholder-shown {
-        color: $color;
+// margin / padding
+@mixin margin($p, $m) {
+    @include pc {
+        margin: $p;
     }
-    &::-webkit-input-placeholder {
-        color:$color;
-    }
-    &:-moz-placeholder {
-        color:$color;
-        opacity: 1;
-    }
-    &::-moz-placeholder {
-        color:$color;
-        opacity: 1;
-    }
-    &:-ms-input-placeholder {
-        color:$color;
+
+    @include mbTab {
+        margin: $m;
     }
 }
 
-@mixin paddingAll($p, $m) {
+@mixin marginTop($p, $m) {
+    @include pc {
+        margin-top: $p;
+    }
+
+    @include mbTab {
+        margin-top: $m;
+    }
+}
+
+@mixin marginLeft($p, $m) {
+    @include pc {
+        margin-left: $p;
+    }
+
+    @include mbTab {
+        margin-left: $m;
+    }
+}
+
+@mixin marginBottom($p, $m) {
+    @include pc {
+        margin-bottom: $p;
+    }
+
+    @include mbTab {
+        margin-bottom: $m;
+    }
+}
+
+@mixin padding($p, $m) {
     @include pc {
         padding: $p;
     }
@@ -281,5 +347,3 @@ mixins
         padding-bottom: $m;
     }
 }
-
-// page
