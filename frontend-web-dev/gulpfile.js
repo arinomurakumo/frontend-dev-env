@@ -16,34 +16,14 @@ var path         = require('path');
 var dev_dir      = './assets';
 var assets_dir   = path.join(process.cwd(), '../www/assets');
 var gulp         = require('gulp');
-var imagemin     = require('gulp-imagemin');
 var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var cssmin       = require('gulp-cssmin');
-var jsmin        = require('gulp-jsmin');
 var rename       = require('gulp-rename');
 var plumber      = require('gulp-plumber');
 var notify       = require('gulp-notify');
+var uglify       = require('gulp-uglify');
 var webpack      = require('gulp-webpack');
-
-// imageMinTask
-gulp.task('imagemin', function() {
-    gulp.src(dev_dir + '/images/*.+(jpg|jpeg|png|gif|svg)')
-        .pipe(plumber({
-      errorHandler: notify.onError("Error: <%= error.message %>")
-    }))
-    .pipe(imagemin())
-    .pipe(gulp.dest(assets_dir + '/images/'));
-});
-
-gulp.task('imageminMb', function() {
-    gulp.src(dev_dir + '/images/mobile/*.+(jpg|jpeg|png|gif|svg)')
-        .pipe(plumber({
-      errorHandler: notify.onError("Error: <%= error.message %>")
-    }))
-    .pipe(imagemin())
-    .pipe(gulp.dest(assets_dir + '/images/mobile/'));
-});
 
 // sass
 gulp.task('sass', function(){
@@ -107,7 +87,7 @@ gulp.task('jsmin', function() {
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
-    .pipe(jsmin())
+    .pipe(uglify({preserveComments: 'some'}))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(assets_dir + '/js/bundle/'));
 });
@@ -117,7 +97,7 @@ gulp.task('jsminMb', function() {
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
-    .pipe(jsmin())
+    .pipe(uglify({preserveComments: 'some'}))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(assets_dir + '/js/bundle/mobile/'));
 });
@@ -130,7 +110,7 @@ gulp.task('webpack', function () {
     }))
     .pipe(webpack(require('./webpack.config.js')))
     .pipe(gulp.dest(assets_dir + '/js/bundle/'))
-    .pipe(jsmin())
+    .pipe(uglify({preserveComments: 'some'}))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(assets_dir + '/js/bundle/'));
 });
@@ -144,10 +124,6 @@ gulp.task('watch', function(){
     // gulp.watch(dev_dir + '/sass/admin/**/*.scss', ['sassAdmin'], function(event) {});
     // gulp.watch(dev_dir + '/sass/mobile/*.scss', ['sassMobile'], function(event) {});
     // gulp.watch(dev_dir + '/sass/mobile/**/**/*.scss', ['sassMobile'], function(event) {});
-
-    // image
-    gulp.watch(dev_dir + 'images/*.+(jpg|jpeg|png|gif|svg)', ['imagemin'], function(event) {});
-    // gulp.watch(dev_dir + '/images/sp/*.+(jpg|jpeg|png|gif|svg)', ['imageminMb'], function(event) {});
 
     // javascript
     gulp.watch(dev_dir + '/js/*.js', ['webpack'], function(event) {});
