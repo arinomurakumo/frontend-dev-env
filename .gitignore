@@ -12,3 +12,4 @@ build
 
 # frontend dev
 /frontend-web-dev/node_modules
+/frontend-web-dev/node_modules/*
