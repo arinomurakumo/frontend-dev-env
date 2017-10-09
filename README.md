@@ -5,7 +5,7 @@
  - タスクを直列処理する
  - Scssはlibsassで自動コンパイル
  - cssはAutoprefixerで自動でプレフィックスを付与
- - css/imageのデータ容量を圧縮する
+ - css/javascriptのデータ容量を圧縮する
  - BABELでJavaScriptをES2015で記述も可能
  - ES2015のビルドはwebpackでJavaScriptを管理
  - ES5にビルドしたjsファイルを圧縮
@@ -46,22 +46,23 @@
 	- [babel](https://babeljs.io/)
 		- babel-core
 		- babel-loader
-- [bower](http://gulpjs.com/)
 
 ## gulp plugins
 - babel-core
 - babel-loader
+- babel-preset-env
 - gulp
 - gulp-autoprefixer
-- gulp-cssmin
-- gulp-imagemin
-- gulp-jsmin
+- gulp-clean-css
 - gulp-notify
 - gulp-plumber
 - gulp-rename
 - gulp-sass
+- gulp-sourcemaps
+- gulp-uglify
 - gulp-webpack
 - path
+- webpack
 
 ## Usage
 frontend-web-devを利用したい任意のディレクトリに、クローンしたディレクトリをコピーして移動します。
@@ -73,30 +74,9 @@ $ cd /Users/username/workspace/your-project/frontend-web-dev
 gulpとpackage.json内の必要なプラグインをインストール
 
 ```
-$ npm install -g
+$ npm install
+$ npm install gulp -g
 ```
-
-必要に応じてbowerもインストールします。
-
-```
-$ npm install -g bower
-```
-
-
-初期化
-
-```
-$ bower init
-```
-
-下記でパッケージを追加できます
-
-```
-$ bower install package-name --save-dev
-```
-
-パッケージをインストールすると``/www/assets/vendor/``にディレクトリが生成されます
-
 
 ### gulp
 
@@ -144,13 +124,8 @@ ECMAScript 6で記述したいファイルを追加したい場合は、``webpac
 app.jsと同じ様に/bundle/内にhoge.min.jsも生成されます。  
 
 
-### images
-``/frontend-web-dev/assets/images/``ディレクトリ内に画像を入れると、  
-``/www/assets/images/``内に圧縮された同名のファイルも生成されます。
-
-
 ## Install
-``$ git clone https://bitbucket.org/RyogaArima/frontend-web-dev ``
+``$ git clone https://github.com/sc-ariman/frontend-web-dev.git ``
 
 
 ## Licence
