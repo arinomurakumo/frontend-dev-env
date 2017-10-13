@@ -3,51 +3,53 @@
 
 # Overview
  - タスクを直列処理する
- - Scssはlibsassで自動コンパイル
- - cssはAutoprefixerで自動でプレフィックスを付与
- - css/javascriptのデータ容量を圧縮する
- - BABELでJavaScriptをES2015で記述も可能
- - ES2015のビルドはwebpackでJavaScriptを管理
- - ES5にビルドしたjsファイルを圧縮
+ - Scss libsassでコンパイル
+ - CSS Autoprefixerで自動でプレフィックスを付与
+ - CSS コンパイル後に圧縮
+ - JavaScript webpackでJavaScriptを管理
+ - JavaScript BabelでES2015をコンパイル
+ - JavaScript コンパイル後に圧縮
 
 # Description
-/
-┣ /www                 - 公開ディレクトリ  
-　　┣ /assets  
-　　　　┣ /css  
-　　　　　┣ /admin  
-　　　　　┣ /mobile  
-　　　　　┗ /page  
-　　　　┣ /js  
-　　　　　┗ /bundle  
-　　　　┗ /images  
-　　┗ index.html  
-┗ /frontend-web-dev    - 開発ディレクトリ  
-　　┣ /assets    
-　　　　┣ /images  
-　　　　┣ /js  
-　　　　┗ /sass  
-　　　　　┣ /admin  
-　　　　　┣ /mobile  
-　　　　　┗ /page  
-　　┣ .bowerrc          - bowerのディレクトリを制御  
-　　┣ gulpfile.js       - gulpの設定ファイル  
-　　┣ package.json      - npmパッケージの設定ファイル  
-　　┣ README.md  
-　　┗ webpack.config.js  - webpackの設定ファイル  
+/  
+┣ /frontend-dev-env    - 開発ディレクトリ  
+　┣ /assets    
+　　┣ /js  
+　　┗ /sass  
+　　　┣ /admin  
+　　　┣ /components  
+　　　┣ /mobile  
+　　　┗ /page  
+　┣ .babelrc          - babelで変換を行う際のバージョン指定設定ファイル  
+　┣ .editorconfig     - コーディングスタイルの設定ファイル  
+　┣ gulpfile.js       - gulpの設定ファイル  
+　┣ package.json      - npmパッケージの設定ファイル  
+　┣ README.md  
+　┗ webpack.config.js  - webpackの設定ファイル  
+┗ /www                 - 公開ディレクトリ  
+　┣ /assets  
+　　┣ /css  
+　　　┣ /admin  
+　　　┣ /mobile  
+　　　┗ /page  
+　　┣ /js  
+　　　┗ /bundle  
+　　┗ /images  
+　┗ index.html  
   
-各設定ファイルに``css``や``js``までのパスが書かれています。  
+各設定ファイルに `css` や `js` までのパスが書かれています。  
 必要あれば変更して下さい。  
 
 # Requirement
 - [npm](https://www.npmjs.com)
 	- [gulp](http://gulpjs.com/)
 	- [webpack](https://webpack.github.io/)
-	- [babel](https://babeljs.io/)
+	- [Babel](https://babeljs.io/)
 		- babel-core
 		- babel-loader
+	- [Karma](https://karma-runner.github.io/1.0/index.html)
 
-## gulp plugins
+## Install package
 - babel-core
 - babel-loader
 - babel-preset-env
@@ -62,20 +64,23 @@
 - gulp-uglify
 - gulp-webpack
 - path
+- jasmine-core
+- karma
+- karma-chrome-launcher
+- karma-jasmine
 - webpack
 
 ## Usage
-frontend-web-devを利用したい任意のディレクトリに、クローンしたディレクトリをコピーして移動します。
+frontend-dev-envを利用したい任意のディレクトリに、クローンしたディレクトリをコピーして移動します。
 
 ```
-$ cd /Users/username/workspace/your-project/frontend-web-dev
+$ cd /Users/username/workspace/your-project/frontend-dev-env
 ```
 
 gulpとpackage.json内の必要なプラグインをインストール
 
 ```
 $ npm install
-$ npm install gulp -g
 ```
 
 ### gulp
@@ -91,8 +96,8 @@ $ gulp
 ``// gulp.watch(path, ['name'], function(event) {});``
 
 
-### css
-開発ディレクトリの``/frontend-web-dev/assets/sass/style.scss``をエディター等で保存すると、  
+### CSS
+開発ディレクトリの``/frontend-dev-env/assets/sass/style.scss``をエディター等で保存すると、  
 下記2ファイルが生成されます。  
 
 ``/www/assets/css/style.css``  
@@ -101,11 +106,11 @@ $ gulp
 gulp-autoprefixerで自動でプレフィックスが付与されます  
 
 * モバイルサイトや管理画面別を分けて開発する際は、  
-  ``gulpfile.js``のsassAdmin や sassMobile のコメントアウトを外し、それぞれパスを指定します。
+  ``gulpfile.js``の ``gulp.task('sass'`` をコピーして、``gulp.dest`` のパスを admin や mobile を指定します。
 
-### javascript
+### JavaScript
 ECMAScript 2015~が使用可能です。  
-開発ディレクトリの``/frontend-web-dev/assets/js/app.js``をエディター等で保存すると、webpackがECMAScript 5へ変換、圧縮ファイルも生成します。  
+開発ディレクトリの``/frontend-dev-env/assets/js/app.js``をエディター等で保存すると、webpackがECMAScript 5へ変換、圧縮ファイルも生成します。  
 下記2ファイルが生成されます。  
 
 ``/www/assets/js/bundle/app.js``  
@@ -123,9 +128,14 @@ ECMAScript 6で記述したいファイルを追加したい場合は、``webpac
 上記の様に``hoge: '../www/assets/js/hoge.js',``とjsファイル名の名前とパスを追加してください。  
 app.jsと同じ様に/bundle/内にhoge.min.jsも生成されます。  
 
+#### Karma を初期化
+```
+$ node_modules/karma/bin/karma init
+```
+
 
 ## Install
-``$ git clone https://github.com/sc-ariman/frontend-web-dev.git ``
+``$ git clone https://github.com/sc-ariman/frontend-dev-env.git ``
 
 
 ## Licence
