@@ -4,13 +4,19 @@
 mixins
 -----------------------------------------------*/
 // @media
+@mixin iphone5 {
+    @media screen and (max-width : 320px) and (orientation: portrait) {
+        @content;
+    }
+}
+
 @mixin mb {
     @media screen and (max-width : 414px) and (orientation: portrait) {
         @content;
     }
 }
 
-@mixin mbTab {
+@mixin mt {
     @media screen and (max-width : 767px) {
         @content;
     }
@@ -22,13 +28,13 @@ mixins
     }
 }
 
-@mixin tabPc {
+@mixin tp {
     @media screen and (min-width : 415px) {
         @content;
     }
 }
 
-@mixin pc {
+@mixin sm {
     @media screen and (min-width : 768px) {
         @content;
     }
@@ -238,112 +244,112 @@ mixins
 
 // margin / padding
 @mixin margin($p, $m) {
-    @include pc {
+    @include sm {
         margin: $p;
     }
 
-    @include mbTab {
+    @include mt {
         margin: $m;
     }
 }
 
 @mixin marginTop($p, $m) {
-    @include pc {
+    @include sm {
         margin-top: $p;
     }
 
-    @include mbTab {
+    @include mt {
         margin-top: $m;
     }
 }
 
 @mixin marginLeft($p, $m) {
-    @include pc {
+    @include sm {
         margin-left: $p;
     }
 
-    @include mbTab {
+    @include mt {
         margin-left: $m;
     }
 }
 
 @mixin marginBottom($p, $m) {
-    @include pc {
+    @include sm {
         margin-bottom: $p;
     }
 
-    @include mbTab {
+    @include mt {
         margin-bottom: $m;
     }
 }
 
 @mixin padding($p, $m) {
-    @include pc {
+    @include sm {
         padding: $p;
     }
 
-    @include mbTab {
+    @include mt {
         padding: $m;
     }
 }
 
 @mixin paddingSide($p, $m) {
-    @include pc {
+    @include sm {
         padding: 0 $p;
     }
 
-    @include mbTab {
+    @include mt {
         padding: 0 $m;
     }
 }
 
 @mixin paddingVertical($p, $m) {
-    @include pc {
+    @include sm {
         padding: $p 0;
     }
 
-    @include mbTab {
+    @include mt {
         padding: $m 0;
     }
 }
 
 @mixin paddingTop($p, $m) {
-    @include pc {
+    @include sm {
         padding-top: $p;
     }
 
-    @include mbTab {
+    @include mt {
         padding-top: $m;
     }
 }
 
 
 @mixin paddingLeft($p, $m) {
-    @include pc {
+    @include sm {
         padding-left: $p;
     }
 
-    @include mbTab {
+    @include mt {
         padding-left: $m;
     }
 }
 
 @mixin paddingRight($p, $m) {
-    @include pc {
+    @include sm {
         padding-right: $p;
     }
 
-    @include mbTab {
+    @include mt {
         padding-right: $m;
     }
 }
 
 @mixin paddingBottom($p, $m) {
-    @include pc {
+    @include sm {
         padding-bottom: $p;
     }
 
-    @include mbTab {
+    @include mt {
         padding-bottom: $m;
     }
 }

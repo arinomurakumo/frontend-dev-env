@@ -1,14 +1,13 @@
 /**
  * gulpfile.js
  *
- *
  * - タスクを直列処理する
- * - Scssはlibsassで自動コンパイル
- * - cssはAutoprefixerで自動でプレフィックスを付与
- * - cssを圧縮する
- * - BABELでJavaScriptをES2015で記述も可能
- * - ES2015のビルドはwebpackでJavaScriptを管理
- * - ES5にビルドしたjsファイルを圧縮
+ * - Scss libsassでコンパイル
+ * - CSS Autoprefixerで自動でプレフィックスを付与
+ * - CSS コンパイル後に圧縮
+ * - JavaScript webpackでJavaScriptを管理
+ * - JavaScript BabelでES2015をコンパイル
+ * - JavaScript コンパイル後に圧縮
  */
 
 // gulpプラグインの読み込み
@@ -24,6 +23,7 @@ var rename       = require('gulp-rename');
 var plumber      = require('gulp-plumber');
 var notify       = require('gulp-notify');
 var uglify       = require('gulp-uglify');
+var karma        = require('gulp-karma');
 var webpack      = require('gulp-webpack');
 
 // sass
@@ -69,7 +69,7 @@ gulp.task('watch', function(){
 
   // javascript
   gulp.watch(dev_dir + '/js/*.js', ['webpack'], function(event) {});
-  gulp.watch(dev_dir + '/js/**/.js', ['webpack'], function(event) {});
+  gulp.watch(dev_dir + '/js/**/*.js', ['webpack'], function(event) {});
 });
 
 gulp.task('default', ['watch']);

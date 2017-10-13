@@ -1,19 +1,6 @@
 @charset "UTF-8";
 
 /*-----------------------------------------------
-modify Fox-css
------------------------------------------------*/
-.fx-row {
-    margin: 0;
-    padding: 0;
-}
-
-[class*="fx-col"] {
-    margin: 0;
-    padding: 0;
-}
-
-/*-----------------------------------------------
 all
 -----------------------------------------------*/
 html {
@@ -32,7 +19,7 @@ body {
     @include fontFamilySansSerif();
     color: $fontColor;
 
-    @include pc {
+    @include sm {
         font-size: 1.4rem;
     }
 
@@ -43,7 +30,6 @@ body {
     @include mb {
         font-size: 1.4rem;
     }
-
 }
 
 a {
@@ -67,23 +53,6 @@ img {
     border: 0;
 }
 
-.btn:hover {
-    opacity: .8;
-}
-
-.split {
-    padding: 0 $pcNum;
-
-    @include mbTab {
-        font-size: 1.2rem;
-    }
-}
-
-.wrap {
-    width: 100%;
-    height: 100%;
-}
-
 /*-----------------------------------------------
 generic
 -----------------------------------------------*/
@@ -92,6 +61,7 @@ generic
     display: none !important;
 }
 
+/*---- border  ----*/
 .bdn {
     border: none !important;
 }
@@ -115,13 +85,13 @@ generic
 
 /*---- display  ----*/
 .mbOn {
-    @include pc {
+    @include sm {
         display: none;
     }
 }
 
 .mbOff {
-    @include mbTab {
+    @include mt {
         display: none;
     }
 }
@@ -132,33 +102,8 @@ generic
 }
 
 /*-----------------------------------------------
-component
------------------------------------------------*/
-/*---- title  ----*/
-.title {
-    //background: url(#{$imgPath}/titleBg.jpg);
-}
-
-/*---- table  ----*/
-
-/*-----------------------------------------------
 common
 -----------------------------------------------*/
-.container {
-    width: 100%;
-    height: 100%;
-    padding: 0;
+/*---- header  ----*/
 
-    @include pc {
-        max-width: 970px;
-        margin: 0 auto;
-    }
-
-    @include mbTab {
-        margin: 0 auto;
-    }
-}
-
-/*---- .header  ----*/
 /*---- footer  ----*/
-/*---- lower  ----*/
