@@ -1,7 +1,8 @@
-フロントエンド開発環境の構築[Babel / libsass / Webpack / gulp]
-====
+# フロントエンド開発環境の構築[Babel / libsass / Webpack / gulp]
 
-# Overview
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/sc-ariman/tool/blob/master/LICENSE)
+
+## Overview
  - タスクを直列処理する
  - Scss libsassでコンパイル
  - CSS Autoprefixerで自動でプレフィックスを付与
@@ -10,7 +11,7 @@
  - JavaScript BabelでES2015をコンパイル
  - JavaScript コンパイル後に圧縮
 
-# Description
+## Description
 /  
 ┣ /frontend-dev-env    - 開発ディレクトリ  
 　┣ /assets    
@@ -40,7 +41,7 @@
 各設定ファイルに `css` や `js` までのパスが書かれています。  
 必要あれば変更して下さい。  
 
-# Requirement
+## Requirement
 - [npm](https://www.npmjs.com)
 	- [gulp](http://gulpjs.com/)
 	- [webpack](https://webpack.github.io/)
@@ -49,7 +50,7 @@
 		- babel-loader
 	- [Karma](https://karma-runner.github.io/1.0/index.html)
 
-## Install package
+### Install package
 - babel-core
 - babel-loader
 - babel-preset-env
@@ -140,7 +141,7 @@ $ node_modules/karma/bin/karma init
 
 ## Licence
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+[MIT](https://github.com/sc-ariman/tool/blob/master/LICENSE)
 
 ## Author
 
