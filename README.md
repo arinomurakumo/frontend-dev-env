@@ -2,6 +2,8 @@
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/sc-ariman/tool/blob/master/LICENSE)
 
+web develop environment.
+
 ## Overview
  - タスクを直列処理する
  - Scss libsassでコンパイル
@@ -17,12 +19,11 @@
 　┣ /assets    
 　　┣ /js  
 　　┗ /sass  
-　　　┣ /admin  
 　　　┣ /components  
-　　　┣ /mobile  
 　　　┗ /page  
 　┣ .babelrc          - babelで変換を行う際のバージョン指定設定ファイル  
 　┣ .editorconfig     - コーディングスタイルの設定ファイル  
+　┣ .eslintrc         - eslintの設定ファイル  
 　┣ gulpfile.js       - gulpの設定ファイル  
 　┣ package.json      - npmパッケージの設定ファイル  
 　┣ README.md  
@@ -30,8 +31,6 @@
 ┗ /www                 - 公開ディレクトリ  
 　┣ /assets  
 　　┣ /css  
-　　　┣ /admin  
-　　　┣ /mobile  
 　　　┗ /page  
 　　┣ /js  
 　　　┗ /bundle  
@@ -57,18 +56,18 @@
 - gulp
 - gulp-autoprefixer
 - gulp-clean-css
+- gulp-karma
 - gulp-notify
 - gulp-plumber
 - gulp-rename
 - gulp-sass
 - gulp-sourcemaps
 - gulp-uglify
-- gulp-webpack
-- path
 - jasmine-core
 - karma
 - karma-chrome-launcher
 - karma-jasmine
+- npm-run-all
 - webpack
 
 ## Usage
@@ -78,7 +77,7 @@ frontend-dev-envを利用したい任意のディレクトリに、クローン�
 $ cd /Users/username/workspace/your-project/frontend-dev-env
 ```
 
-gulpとpackage.json内の必要なプラグインをインストール
+package.json内の必要なプラグインをインストール
 
 ```
 $ npm install
@@ -87,17 +86,17 @@ $ npm install
 ### gulp
 
 ```
-$ gulp
+$ yarn run build
 ```
 
-監視が開始されます。
+scssとjavascriptが監視が開始されます。
 
-``gulpfile.js``に監視対象を記載しています。  
+scssは、``gulpfile.js``に監視対象を記載しています。  
 ``gulp.task('watch', function(){}``内の必要無い部分はコメントアウトして下さい。  
 ``// gulp.watch(path, ['name'], function(event) {});``
 
 
-### CSS
+### SCSS
 開発ディレクトリの``/frontend-dev-env/assets/sass/style.scss``をエディター等で保存すると、  
 下記2ファイルが生成されます。  
 
@@ -110,12 +109,12 @@ gulp-autoprefixerで自動でプレフィックスが付与されます
   ``gulpfile.js``の ``gulp.task('sass'`` をコピーして、``gulp.dest`` のパスを admin や mobile を指定します。
 
 ### JavaScript
+Javascriptは、`webpack.config.js`に監視対象を記載しています。  
 ECMAScript 2015~が使用可能です。  
 開発ディレクトリの``/frontend-dev-env/assets/js/app.js``をエディター等で保存すると、webpackがECMAScript 5へ変換、圧縮ファイルも生成します。  
 下記2ファイルが生成されます。  
 
 ``/www/assets/js/bundle/app.js``  
-``/www/assets/js/bundle/app.min.js``  
 
 ECMAScript 6で記述したいファイルを追加したい場合は、``webpack.config.js``の``entry``に  
 
