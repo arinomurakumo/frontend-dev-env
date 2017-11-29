@@ -1,45 +1,45 @@
-var webpack = require('webpack');
-var path    = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   entry: {
     app:   './assets/js/app.js',
   },
   output: {
-    path: __dirname + "../source/assets/js/bundle/",
-    filename: "[name].js"
+    filename: "[name].js",
+    path: path.join(__dirname, '../www/assets/js/bundle/'),
   },
-  devtool: 'inline-source-map',
-  resolveLoader: {
-    root: path.join(__dirname, "node_modules")
-  },
+  devtool: "#inline-source-map",
   module: {
-    loaders: [
-      {
-        loader: ['babel-loader'],
-        include: [
-          path.resolve(__dirname, "./assets/js"),
-        ],
-        test: /\.js/,
-        exclude: /node_modules|bower_components/,
-        presets: ['es2015'],
-        query  : {
-          compact: false,
-        },
-      }
-    ]
+    rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: [{
+        loader: 'babel-loader',
+        options: {
+          presets: ['env']
+        }
+      }],
+    },
+    {
+      enforce: 'pre',
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'eslint-loader',
+    }],
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  // externals: {
-  //   jquery: 'jQuery',
-  // },
   plugins: [
-    // new webpack.ProvidePlugin({
-    //   $: "jquery",
-    //   jQuery: "jquery",
-    //   "window.jQuery": "jquery",
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        // remove console.log
+        // drop_console: true
+      },
+    }),
+    new webpack.ProvidePlugin({
+      // $: 'jquery'
+    }),
   ]
 };

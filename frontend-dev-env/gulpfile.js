@@ -24,7 +24,6 @@ var plumber      = require('gulp-plumber');
 var notify       = require('gulp-notify');
 var uglify       = require('gulp-uglify');
 var karma        = require('gulp-karma');
-var webpack      = require('gulp-webpack');
 
 // sass
 gulp.task('sass', function(){
@@ -35,7 +34,8 @@ gulp.task('sass', function(){
   }))
   .pipe(sass({
       outputStyle: 'expanded'
-  }).on('error', sass.logError))
+  })
+  .on('error', sass.logError))
   .pipe(autoprefixer({
       browsers: ['last 2 version', 'iOS >= 8.1', 'Android >= 4.0'],
       cascade: false
@@ -48,28 +48,12 @@ gulp.task('sass', function(){
   .pipe(gulp.dest(assets_dir + '/css/'));
 });
 
-// webpack
-gulp.task('webpack', function () {
-  gulp.src(dev_dir + '/js/*.js')
-  .pipe(plumber({
-    errorHandler: notify.onError("Error: <%= error.message %>")
-  }))
-  .pipe(webpack(require('./webpack.config.js')))
-  .pipe(gulp.dest(assets_dir + '/js/bundle/'))
-  .pipe(uglify({preserveComments: 'some'}))
-  .pipe(rename({suffix: '.min'}))
-  .pipe(gulp.dest(assets_dir + '/js/bundle/'));
-});
 
 // watch
 gulp.task('watch', function(){
   // css
   gulp.watch(dev_dir + '/sass/*.scss', ['sass'], function(event) {});
   gulp.watch(dev_dir + '/sass/**/*.scss', ['sass'], function(event) {});
-
-  // javascript
-  gulp.watch(dev_dir + '/js/*.js', ['webpack'], function(event) {});
-  gulp.watch(dev_dir + '/js/**/*.js', ['webpack'], function(event) {});
 });
 
 gulp.task('default', ['watch']);
