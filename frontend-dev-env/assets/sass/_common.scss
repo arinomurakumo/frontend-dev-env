@@ -6,7 +6,14 @@ all
 html {
     height: 100%;
     min-height: 100%;
-    font-size: $fontsizeBase;
+
+    @include sm {
+        @include fluid-type(font-size, 769px, 1280px, 8px, 16px);
+    }
+
+    @include mt {
+        @include fluid-type(font-size, 320px, 768px, 12px, 30px);
+    }
 }
 
 body {
@@ -18,30 +25,17 @@ body {
     background: $baseColor;
     @include fontFamilySansSerif();
     color: $fontColor;
-
-    @include sm {
-        font-size: 1.4rem;
-    }
-
-    @include tab {
-        font-size: 1.4rem;
-    }
-
-    @include mb {
-        font-size: 1.4rem;
-    }
 }
 
 a {
     color: $linkColor;
     text-decoration: none;
+}
 
-    &:link,
-    &:visited {
-        color: $borderColor;
-    }
-
+a,
+button {
     &:hover {
+        cursor: pointer;
         opacity: .8;
     }
 }
@@ -51,6 +45,10 @@ img {
     max-width: 100%;
     height: auto;
     border: 0;
+}
+
+figure {
+    line-height: 0;
 }
 
 /*-----------------------------------------------
@@ -94,11 +92,6 @@ generic
     @include mt {
         display: none;
     }
-}
-
-/*---- height  ----*/
-.lh_0 {
-    line-height: 0;
 }
 
 /*-----------------------------------------------
