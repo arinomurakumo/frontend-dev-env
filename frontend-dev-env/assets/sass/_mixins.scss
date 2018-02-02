@@ -4,7 +4,7 @@
 mixins
 -----------------------------------------------*/
 // @media
-@mixin iphone5 {
+@mixin mb_320 {
     @media screen and (max-width : 320px) and (orientation: portrait) {
         @content;
     }
@@ -17,13 +17,13 @@ mixins
 }
 
 @mixin mt {
-    @media screen and (max-width : 767px) {
+    @media screen and (max-width : 768px) {
         @content;
     }
 }
 
 @mixin tab {
-    @media screen and (min-width : 415px) and (max-width : 767px) {
+    @media screen and (min-width : 415px) and (max-width : 768px) {
         @content;
     }
 }
@@ -35,7 +35,7 @@ mixins
 }
 
 @mixin sm {
-    @media screen and (min-width : 768px) {
+    @media screen and (min-width : 769px) {
         @content;
     }
 }
@@ -47,7 +47,7 @@ mixins
 }
 
 @mixin lg {
-    @media screen and (min-width : 1380px) {
+    @media screen and (min-width : 1280px) {
         @content;
     }
 }
@@ -65,9 +65,31 @@ mixins
 }
 
 @mixin fontFamilySansSerif() {
-    //font-family: 游ゴシック','Yu Gothic','メイリオ','Meiryo','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;
-    font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ','Meiryo','游ゴシック','Yu Gothic','ＭＳ Ｐゴシック',sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI','Noto Sans Japanese','ヒラギノ角ゴ ProN W3', Meiryo, sans-serif;
 }
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
 
 // accessory
 @mixin placeholderColor($color) {
