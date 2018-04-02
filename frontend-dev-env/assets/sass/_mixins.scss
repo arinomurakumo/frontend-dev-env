@@ -46,6 +46,12 @@ mixins
     }
 }
 
+@mixin slider_arrow {
+    @media screen and (min-width : 1350px) {
+        @content;
+    }
+}
+
 @mixin lg {
     @media screen and (min-width : 1280px) {
         @content;
@@ -65,7 +71,7 @@ mixins
 }
 
 @mixin fontFamilySansSerif() {
-    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI','Noto Sans Japanese','ヒラギノ角ゴ ProN W3', Meiryo, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'ヒラギノ角ゴ ProN W3', Meiryo, 'Noto Sans JP', 'Noto Sans Japanese', sans-serif;
 }
 
 @mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
