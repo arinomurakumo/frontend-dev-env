@@ -2,7 +2,7 @@
  * gulpfile.js
  */
 
-// gulpプラグインの読み込み
+// init
 import path         from 'path';
 import gulp         from 'gulp';
 import sass         from 'gulp-sass';
@@ -14,6 +14,7 @@ import plumber      from 'gulp-plumber';
 import notify       from 'gulp-notify';
 import uglify       from 'gulp-uglify';
 
+
 const  dev_dir      = './assets';
 const  assets_dir   = path.join(process.cwd(), '../www/assets');
 const paths = {
@@ -22,7 +23,7 @@ const paths = {
     lower:  dev_dir + '/sass/**/*.scss',
     dest:   assets_dir + '/css/'
   },
-}
+};
 
 // Sass
 export function styles() {
