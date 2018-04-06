@@ -21,14 +21,13 @@ body {
     height: 100%;
     min-height: 100%;
     line-height: 1.5;
-    padding: 0 !important;
-    background: $baseColor;
-    @include fontFamilySansSerif();
-    color: $fontColor;
+    background: $base_color;
+    @include fontfamily--Serif();
+    color: $font_color;
 }
 
 a {
-    color: $linkColor;
+    color: $link_color;
     text-decoration: none;
 }
 
@@ -82,13 +81,13 @@ generic
 }
 
 /*---- display  ----*/
-.mbOn {
+.mb--on {
     @include sm {
         display: none;
     }
 }
 
-.mbOff {
+.mb--off {
     @include mt {
         display: none;
     }
