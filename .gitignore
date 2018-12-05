@@ -14,8 +14,6 @@ build
 /frontend-dev-env/node_modules
 
 # dist
-/www/assets/css/style.css
-/www/assets/css/style.min.css
+/www/assets/css/*
 /www/assets/map/*
-/www/assets/js/bundle/app.js
-/www/assets/js/bundle/app.min.js
+/www/assets/js/bundle/*
