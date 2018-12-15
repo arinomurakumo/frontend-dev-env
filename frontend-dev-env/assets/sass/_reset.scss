@@ -6,14 +6,12 @@
 * {
     margin: 0;
     padding: 0;
-    -ms-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     box-sizing: border-box;
 }
 
 img {
-    border: 0;
+    border: none;
 }
 
 li {
@@ -40,7 +38,7 @@ tt {
 table {
     border-collapse: collapse;
     border-spacing: 0;
-    font-size: 100%;
+    font-size: inherit;
 }
 
 button,
@@ -126,7 +124,7 @@ time {
 // chorome
 input:-webkit-autofill,
 textarea:-webkit-autofill {
-    box-shadow: 0 0 0 1000px #fff inset;
+    box-shadow: 0 0 0 1000px transparent inset;
 }
 
 /*!
@@ -171,25 +169,20 @@ dfn {
     font-style: italic;
 }
 
-mark {
-    background-color: #ff0;
-    color: #000;
-}
-
 sub,
 sup {
-    font-size: 75%;
+    font-size: inherit;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
 }
 
 sub {
-    bottom: -0.25em;
+    bottom: -.25em;
 }
 
 sup {
-    top: -0.5em;
+    top: -.5em;
 }
 
 input {
@@ -198,6 +191,7 @@ input {
 
 [type="search"] {
     -webkit-appearance: textfield;
+    outline-offset: -2px;
 }
 
 [type="search"]::-webkit-search-cancel-button,
@@ -267,16 +261,7 @@ legend {
 
 ::-webkit-input-placeholder {
     color: inherit;
-    opacity: 0.54;
-}
-
-[type="search"] {
-    -webkit-appearance: textfield;
-    outline-offset: -2px;
-}
-
-img {
-    border-style: none;
+    opacity: .54;
 }
 
 progress {
