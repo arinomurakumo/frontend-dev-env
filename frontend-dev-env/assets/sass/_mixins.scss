@@ -97,21 +97,11 @@
     }
 
     &::-webkit-input-placeholder {
-        color:$color;
-    }
-
-    &:-moz-placeholder {
-        color:$color;
-        opacity: 1;
-    }
-
-    &::-moz-placeholder {
-        color:$color;
-        opacity: 1;
+        color: $color;
     }
 
     &:-ms-input-placeholder {
-        color:$color;
+        color: $color;
     }
 }
 
@@ -119,7 +109,7 @@
 @mixin col--table($verticalAlign) {
     display: table;
 
-    & > * {
+    > * {
         float: none;
         display: table-cell;
         vertical-align: $verticalAlign;
@@ -130,7 +120,7 @@
     margin-left: -$num;
     margin-right: -$num;
 
-    & > * {
+    > * {
         padding: 0 $num;
     }
 }
@@ -138,11 +128,11 @@
 @mixin col--2($num) {
     @include equal-width-column($num);
 
-    & > *:nth-child(2n+1) {
+    > *:nth-child(2n+1) {
         clear: both;
     }
 
-    & > *:nth-child(n+3) {
+    > *:nth-child(n+3) {
         padding-top: ($num);
     }
 }
@@ -150,11 +140,11 @@
 @mixin col--3($num) {
     @include equal-width-column($num);
 
-    & > *:nth-child(3n+1) {
+    > *:nth-child(3n+1) {
         clear: both;
     }
 
-    & > *:nth-child(n+4) {
+    > *:nth-child(n+4) {
         padding-top: ($num);
     }
 }
@@ -162,11 +152,11 @@
 @mixin col--4($num) {
     @include equal-width-column($num);
 
-    & > *:nth-child(4n+1) {
+    > *:nth-child(4n+1) {
         clear: both;
     }
 
-    & > *:nth-child(n+5) {
+    > *:nth-child(n+5) {
         padding-top: ($num);
     }
 }
@@ -174,11 +164,11 @@
 @mixin col--5($num) {
     @include equal-width-column($num);
 
-    & > *:nth-child(5n+1) {
+    > *:nth-child(5n+1) {
         clear: both;
     }
 
-    & > *:nth-child(n+6) {
+    > *:nth-child(n+6) {
         padding-top: ($num);
     }
 }
@@ -186,11 +176,11 @@
 @mixin col--6($num) {
     @include equal-width-column($num);
 
-    & > *:nth-child(6n+1) {
+    > *:nth-child(6n+1) {
         clear: both;
     }
 
-    & > *:nth-child(n+7) {
+    > *:nth-child(n+7) {
         padding-top: ($num);
     }
 }
@@ -198,11 +188,11 @@
 @mixin col--7($num) {
     @include equal-width-column($num);
 
-    & > *:nth-child(7n+1) {
+    > *:nth-child(7n+1) {
         clear: both;
     }
 
-    & > *:nth-child(n+8) {
+    > *:nth-child(n+8) {
         padding-top: ($num);
     }
 }
@@ -210,11 +200,11 @@
 @mixin col--8($num) {
     @include equal-width-column($num);
 
-    & > *:nth-child(8n+1) {
+    > *:nth-child(8n+1) {
         clear: both;
     }
 
-    & > *:nth-child(n+9) {
+    > *:nth-child(n+9) {
         padding-top: ($num);
     }
 }
@@ -222,11 +212,11 @@
 @mixin col--9($num) {
     @include equal-width-column($num);
 
-    & > *:nth-child(9n+1) {
+    > *:nth-child(9n+1) {
         clear: both;
     }
 
-    & > *:nth-child(n+10) {
+    > *:nth-child(n+10) {
         padding-top: ($num);
     }
 }
@@ -238,13 +228,12 @@
     height: 100%;
     padding: 75% 0 0;
 
-    & > * {
+    > * {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background:  #b40d0d;
     }
 }
 
@@ -254,7 +243,7 @@
     height: 100%;
     padding: 56.25% 0 0;
 
-    & > * {
+    > * {
         position: absolute;
         top: 0;
         left: 0;
