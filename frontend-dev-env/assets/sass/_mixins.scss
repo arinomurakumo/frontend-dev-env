@@ -5,67 +5,69 @@
 // -----------------------------------------------
 // @media
 @mixin mb-320 {
-    @media screen and (max-width : 320px) and (orientation: portrait) {
+    @media screen and (max-width: 320px) and (orientation: portrait) {
         @content;
     }
 }
 
 @mixin mb {
-    @media screen and (max-width : 414px) and (orientation: portrait) {
+    @media screen and (max-width: 414px) and (orientation: portrait) {
         @content;
     }
 }
 
 @mixin mt {
-    @media screen and (max-width : 768px) {
+    @media screen and (max-width: 768px) {
         @content;
     }
 }
 
 @mixin tab {
-    @media screen and (min-width : 415px) and (max-width : 768px) {
+    @media screen and (min-width: 415px) and (max-width: 768px) {
         @content;
     }
 }
 
 @mixin tp {
-    @media screen and (min-width : 415px) {
+    @media screen and (min-width: 415px) {
         @content;
     }
 }
 
 @mixin sm {
-    @media screen and (min-width : 769px) {
+    @media screen and (min-width: 769px) {
         @content;
     }
 }
 
 @mixin md {
-    @media screen and (min-width : 1024px) {
+    @media screen and (min-width: 1024px) {
         @content;
     }
 }
 
 @mixin lg {
-    @media screen and (min-width : 1280px) {
+    @media screen and (min-width: 1280px) {
         @content;
     }
 }
 
 @mixin xlg {
-    @media screen and (min-width : 1980px) {
+    @media screen and (min-width: 1980px) {
         @content;
     }
 }
 
-
 // font
-@mixin fontfamily--Serif() {
-    font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+@mixin fontfamily-serif() {
+    font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝',
+        'Yu Mincho', '游明朝体', 'YuMincho', 'ＭＳ Ｐ明朝', 'MS PMincho', serif;
 }
 
-@mixin fontfamily--SansSerif() {
-    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'ヒラギノ角ゴ ProN W3', Meiryo, 'Noto Sans JP', 'Noto Sans Japanese', sans-serif;
+@mixin fontfamily-sansserif() {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI',
+        'ヒラギノ角ゴ ProN W3', Meiryo, 'Noto Sans JP', 'Noto Sans Japanese',
+        sans-serif;
 }
 
 @mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
@@ -75,7 +77,12 @@
 
     @media screen and (min-width: $min-vw) {
         @each $property in $properties {
-            #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+            #{$property}: calc(
+                #{$min-value} +
+                #{strip-unit($max-value - $min-value)} *
+                (100vw - #{$min-vw}) /
+                #{strip-unit($max-vw - $min-vw)}
+            );
         }
     }
 
@@ -106,7 +113,7 @@
 }
 
 // box
-@mixin col--table($verticalAlign) {
+@mixin col-table($verticalAlign) {
     display: table;
 
     > * {
@@ -125,104 +132,104 @@
     }
 }
 
-@mixin col--2($num) {
+@mixin col-2($num) {
     @include equal-width-column($num);
 
-    > *:nth-child(2n+1) {
+    > *:nth-child(2n + 1) {
         clear: both;
     }
 
-    > *:nth-child(n+3) {
+    > *:nth-child(n + 3) {
         padding-top: ($num);
     }
 }
 
-@mixin col--3($num) {
+@mixin col-3($num) {
     @include equal-width-column($num);
 
-    > *:nth-child(3n+1) {
+    > *:nth-child(3n + 1) {
         clear: both;
     }
 
-    > *:nth-child(n+4) {
+    > *:nth-child(n + 4) {
         padding-top: ($num);
     }
 }
 
-@mixin col--4($num) {
+@mixin col-4($num) {
     @include equal-width-column($num);
 
-    > *:nth-child(4n+1) {
+    > *:nth-child(4n + 1) {
         clear: both;
     }
 
-    > *:nth-child(n+5) {
+    > *:nth-child(n + 5) {
         padding-top: ($num);
     }
 }
 
-@mixin col--5($num) {
+@mixin col-5($num) {
     @include equal-width-column($num);
 
-    > *:nth-child(5n+1) {
+    > *:nth-child(5n + 1) {
         clear: both;
     }
 
-    > *:nth-child(n+6) {
+    > *:nth-child(n + 6) {
         padding-top: ($num);
     }
 }
 
-@mixin col--6($num) {
+@mixin col-6($num) {
     @include equal-width-column($num);
 
-    > *:nth-child(6n+1) {
+    > *:nth-child(6n + 1) {
         clear: both;
     }
 
-    > *:nth-child(n+7) {
+    > *:nth-child(n + 7) {
         padding-top: ($num);
     }
 }
 
-@mixin col--7($num) {
+@mixin col-7($num) {
     @include equal-width-column($num);
 
-    > *:nth-child(7n+1) {
+    > *:nth-child(7n + 1) {
         clear: both;
     }
 
-    > *:nth-child(n+8) {
+    > *:nth-child(n + 8) {
         padding-top: ($num);
     }
 }
 
-@mixin col--8($num) {
+@mixin col-8($num) {
     @include equal-width-column($num);
 
-    > *:nth-child(8n+1) {
+    > *:nth-child(8n + 1) {
         clear: both;
     }
 
-    > *:nth-child(n+9) {
+    > *:nth-child(n + 9) {
         padding-top: ($num);
     }
 }
 
-@mixin col--9($num) {
+@mixin col-9($num) {
     @include equal-width-column($num);
 
-    > *:nth-child(9n+1) {
+    > *:nth-child(9n + 1) {
         clear: both;
     }
 
-    > *:nth-child(n+10) {
+    > *:nth-child(n + 10) {
         padding-top: ($num);
     }
 }
 
 // fixed layout
-@mixin rectangle--4to3() {
+@mixin rectangle-4to3() {
     position: relative;
     width: 100%;
     height: 100%;
@@ -237,7 +244,7 @@
     }
 }
 
-@mixin rectangle--16to9() {
+@mixin rectangle-16to9() {
     position: relative;
     width: 100%;
     height: 100%;
@@ -263,7 +270,7 @@
     }
 }
 
-@mixin margin--top($p, $m) {
+@mixin margin-top($p, $m) {
     @include sm {
         margin-top: $p;
     }
@@ -273,7 +280,7 @@
     }
 }
 
-@mixin margin--left($p, $m) {
+@mixin margin-left($p, $m) {
     @include sm {
         margin-left: $p;
     }
@@ -283,7 +290,7 @@
     }
 }
 
-@mixin margin--bottom($p, $m) {
+@mixin margin-bottom($p, $m) {
     @include sm {
         margin-bottom: $p;
     }
@@ -303,7 +310,7 @@
     }
 }
 
-@mixin padding--side($p, $m) {
+@mixin padding-side($p, $m) {
     @include sm {
         padding: 0 $p;
     }
@@ -313,7 +320,7 @@
     }
 }
 
-@mixin padding--vertical($p, $m) {
+@mixin padding-vertical($p, $m) {
     @include sm {
         padding: $p 0;
     }
@@ -323,7 +330,7 @@
     }
 }
 
-@mixin padding--top($p, $m) {
+@mixin padding-top($p, $m) {
     @include sm {
         padding-top: $p;
     }
@@ -333,8 +340,7 @@
     }
 }
 
-
-@mixin padding--left($p, $m) {
+@mixin padding-left($p, $m) {
     @include sm {
         padding-left: $p;
     }
@@ -344,7 +350,7 @@
     }
 }
 
-@mixin padding--right($p, $m) {
+@mixin padding-right($p, $m) {
     @include sm {
         padding-right: $p;
     }
@@ -354,7 +360,7 @@
     }
 }
 
-@mixin padding--bottom($p, $m) {
+@mixin padding-bottom($p, $m) {
     @include sm {
         padding-bottom: $p;
     }
