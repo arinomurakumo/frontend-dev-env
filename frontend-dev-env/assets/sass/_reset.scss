@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 // -----------------------------------------------
 // reset
@@ -8,6 +8,9 @@
     padding: 0;
     text-size-adjust: 100%;
     box-sizing: border-box;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
 }
 
 img {
@@ -22,7 +25,6 @@ caption,
 th,
 td {
     text-align: left;
-    font-weight: normal;
     vertical-align: middle;
 }
 
@@ -38,7 +40,6 @@ tt {
 table {
     border-collapse: collapse;
     border-spacing: 0;
-    font-size: inherit;
 }
 
 button,
@@ -55,7 +56,7 @@ textarea {
     font-style: inherit;
     font-weight: inherit;
     vertical-align: baseline;
-    -webkit-appearance: none;
+    appearance: none;
 }
 
 input:active,
@@ -66,12 +67,14 @@ button:active,
 button:focus,
 a:active,
 a:focus {
-    outline: 0;
+    @include mt {
+        outline: 0;
+    }
 }
 
 q::before,
 q::after {
-    content: "";
+    content: '';
 }
 
 article,
@@ -89,36 +92,6 @@ section,
 main {
     display: block;
     word-wrap: break-word;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-section,
-nav,
-article,
-aside,
-hgroup,
-header,
-footer,
-address,
-address,
-caption,
-cite,
-code,
-dfn,
-em,
-th,
-strong,
-var,
-small,
-time {
-    font-style: normal;
-    font-weight: normal;
-    font-size: inherit;
 }
 
 // chorome
@@ -171,7 +144,6 @@ dfn {
 
 sub,
 sup {
-    font-size: inherit;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
@@ -189,13 +161,13 @@ input {
     border-radius: 0;
 }
 
-[type="search"] {
+[type='search'] {
     -webkit-appearance: textfield;
     outline-offset: -2px;
 }
 
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
     -webkit-appearance: none;
 }
 
@@ -213,9 +185,9 @@ button {
 }
 
 button,
-html [type="button"],
-[type="reset"],
-[type="submit"] {
+html [type='button'],
+[type='reset'],
+[type='submit'] {
     -webkit-appearance: button;
 }
 
