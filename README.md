@@ -34,7 +34,7 @@ web develop environment.
 ┗ /www - Public directory  
 　 ┣ /assets  
 　　 ┣ /css  
-　　　 ┗ /page 
+　　　 ┗ /page  
 　　 ┣ /js  
 　　　 ┗ /bundle  
 　　 ┗ /images  
