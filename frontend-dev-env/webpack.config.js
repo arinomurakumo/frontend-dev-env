@@ -1,16 +1,16 @@
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require("webpack");
+const path = require("path");
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: {
-    app: './assets/js/app.js'
+    app: "./assets/js/app.js"
   },
   output: {
-    filename: '[name].js',
-    path: path.join(__dirname, '../www/assets/js/bundle/')
+    filename: "[name].js",
+    path: path.join(__dirname, "../www/assets/js/bundle/")
   },
-  devtool: '#inline-source-map',
+  devtool: "#inline-source-map",
   module: {
     rules: [
       {
@@ -18,25 +18,25 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: ['env']
+              presets: ["env"]
             }
           }
         ]
       },
       {
-        enforce: 'pre',
+        enforce: "pre",
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
+        loader: "eslint-loader"
       }
     ]
   },
   optimization: {
     splitChunks: {
-      name: 'vendor',
-      chunks: 'initial'
+      name: "vendor",
+      chunks: "initial"
     }
     // splitChunks: {
     //   cacheGroups: {

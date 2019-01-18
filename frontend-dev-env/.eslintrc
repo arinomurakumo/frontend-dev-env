@@ -6,5 +6,9 @@
   "parserOptions": {
     "sourceType": "module",
     "allowImportExportEverywhere": true
+  },
+  "extends": ["semistandard"],
+  "rules": {
+    "camelcase": 0
   }
 }
