@@ -16,31 +16,31 @@ web develop environment.
 
 ## Description
 
-/
-┣ /frontend-dev-env   - front develop
-　 ┣ /assets
-　　 ┣ /js
-　　 ┗ /sass
-　　　 ┣ /components
-　　　 ┗ /page
-　 ┣ .babelrc         - Version specification setting file when converting with babel
-　 ┣ .editorconfig - Coding style setting file
-　 ┣ .eslintrc - eslint configuration file
-　 ┣ .stylelintrc.json - scss configuration file
-　 ┣ gulpfile.babel.js - gulp configuration file
-　 ┣ package.json - npm package configuration file
-　 ┣ README.md
-　 ┗ webpack.config.js - webpack configuration file
-┗ /www - Public directory
-　 ┣ /assets
-　　 ┣ /css
-　　　 ┗ /page
-　　 ┣ /js
-　　　 ┗ /bundle
-　　 ┗ /images
-　 ┗ index.html
-
-The paths to `css` and`js` which are published in each setting file are written.
+/  
+┣ /frontend-dev-env - front develop  
+　 ┣ /assets  
+　　 ┣ /js  
+　　 ┗ /sass  
+　　　 ┣ /components  
+　　　 ┗ /page  
+　 ┣ .babelrc  - Version specification setting file when converting with babel  
+　 ┣ .editorconfig - Coding style setting file  
+　 ┣ .eslintrc - eslint configuration file  
+　 ┣ .stylelintrc.json - scss configuration file  
+　 ┣ gulpfile.babel.js - gulp configuration file  
+　 ┣ package.json - npm package configuration file  
+　 ┣ README.md  
+　 ┗ webpack.config.js - webpack configuration file  
+┗ /www - Public directory  
+　 ┣ /assets  
+　　 ┣ /css  
+　　　 ┗ /page 
+　　 ┣ /js  
+　　　 ┗ /bundle  
+　　 ┗ /images  
+　 ┗ index.html  
+  
+The paths to `css` and `js` which are published in each setting file are written.  
 Please change it if necessary.
 
 ## Requirement
@@ -100,8 +100,8 @@ gulp-autoprefixer automatically prefixes
 
 #### Add file
 
-Javascript describes the target to be monitored in `webpack.config.js`.
-If you save `/ frontend-dev-env / assets / js / app.js` in the development directory with an editor etc, webpack converts it to ECMAScript 5.
+Javascript describes the target to be monitored in `webpack.config.js`.  
+If you save `/ frontend-dev-env / assets / js / app.js` in the development directory with an editor etc, webpack converts it to ECMAScript 5.  
 The following two files are generated.
 
 `/www/assets/js/bundle/app.js`
