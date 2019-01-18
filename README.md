@@ -5,48 +5,50 @@
 web develop environment.
 
 ## Overview
+
 - Serialize tasks
 - Compile with Scss libsass
 - Automatically add prefix with CSS Autoprefixer
 - Compress after CSS compilation
 - Manage JavaScript with JavaScript webpack
-- Compile ES2015 with JavaScript Babel
+- Compile ES6 with JavaScript Babel
 - Compression after JavaScript compilation
 
 ## Description
+
 /
-┣ /frontend-dev-env    - front develop  
-　┣ /assets  
-　　┣ /js  
-　　┗ /sass  
-　　　┣ /components  
-　　　┗ /page  
-　┣ .babelrc          - Version specification setting file when converting with babel  
-　┣ .editorconfig     - Coding style setting file  
-　┣ .eslintrc         - eslint configuration file  
-　┣ gulpfile.babel.js - gulp configuration file  
-　┣ package.json      - npm package configuration file  
-　┣ README.md  
-　┗ webpack.config.js  - webpack configuration file  
-┗ /www                 - Public directory  
-　┣ /assets  
-　　┣ /css  
-　　　┗ /page  
-　　┣ /js  
-　　　┗ /bundle  
-　　┗ /images  
-　┗ index.html  
-  
-The paths to `css` and` js` which are published in each setting file are written.  
+┣ /frontend-dev-env   - front develop
+　 ┣ /assets
+　　 ┣ /js
+　　 ┗ /sass
+　　　 ┣ /components
+　　　 ┗ /page
+　 ┣ .babelrc         - Version specification setting file when converting with babel
+　 ┣ .editorconfig - Coding style setting file
+　 ┣ .eslintrc - eslint configuration file
+　 ┣ .stylelintrc.json - scss configuration file
+　 ┣ gulpfile.babel.js - gulp configuration file
+　 ┣ package.json - npm package configuration file
+　 ┣ README.md
+　 ┗ webpack.config.js - webpack configuration file
+┗ /www - Public directory
+　 ┣ /assets
+　　 ┣ /css
+　　　 ┗ /page
+　　 ┣ /js
+　　　 ┗ /bundle
+　　 ┗ /images
+　 ┗ index.html
+
+The paths to `css` and`js` which are published in each setting file are written.
 Please change it if necessary.
 
 ## Requirement
-- [npm](https://www.npmjs.com)
-	- [gulp](http://gulpjs.com/)
-	- [webpack](https://webpack.github.io/)
-	- [Babel](https://babeljs.io/)
+
+- [npm](https://www.npmjs.com) - [gulp](http://gulpjs.com/) - [webpack](https://webpack.github.io/) - [Babel](https://babeljs.io/)
 
 ## Usage
+
 Clone to any directory.
 
 ```
@@ -85,11 +87,12 @@ $ yarn run webpack
 ```
 
 ### SCSS
-If you save ``/frontend-dev-env/assets/sass/style.scss`` in the development directory with an editor,  
+
+If you save `/frontend-dev-env/assets/sass/style.scss` in the development directory with an editor,
 The following two files are generated.
 
-``/www/assets/css/style.css``
-``/www/assets/css/style.min.css``
+`/www/assets/css/style.css`
+`/www/assets/css/style.min.css`
 
 gulp-autoprefixer automatically prefixes
 
@@ -97,28 +100,27 @@ gulp-autoprefixer automatically prefixes
 
 #### Add file
 
-Javascript describes the target to be monitored in `webpack.config.js`.   
-If you save `` / frontend-dev-env / assets / js / app.js`` in the development directory with an editor etc, webpack converts it to ECMAScript 5.   
+Javascript describes the target to be monitored in `webpack.config.js`.
+If you save `/ frontend-dev-env / assets / js / app.js` in the development directory with an editor etc, webpack converts it to ECMAScript 5.
 The following two files are generated.
 
-``/www/assets/js/bundle/app.js``
+`/www/assets/js/bundle/app.js`
 
 If you want to add files,
-`` entry`` of `` webpack.config.js``
+`entry` of `webpack.config.js`
 
 ```
    entry: {
-     app: '../www/assets/js/app.js',  
-     hoge: '../www/assets/js/hoge.js',  
+     app: '../www/assets/js/app.js',
+     hoge: '../www/assets/js/hoge.js',
    },
 ```
 
-Please add the name and path of `` hoge: '../ www / assets / js / hoge.js' `` and js file name as above.
-
+Please add the name and path of `hoge: '../ www / assets / js / hoge.js'` and js file name as above.
 
 ## Install
-``$ git clone https://github.com/sc-ariman/frontend-dev-env.git ``
 
+`$ git clone https://github.com/sc-ariman/frontend-dev-env.git`
 
 ## Licence
 
@@ -127,5 +129,3 @@ Please add the name and path of `` hoge: '../ www / assets / js / hoge.js' `` an
 ## Author
 
 [@arima7th](https://twitter.com/arima7th)
-
-

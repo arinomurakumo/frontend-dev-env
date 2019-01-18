@@ -1,6 +1,6 @@
 {
   "name": "frontend-dev-env",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "watch:gulp": "node_modules/gulp/bin/gulp.js watch",
     "webpack": "node_modules/webpack/bin/webpack.js --watch --devtool source-map",
     "gulp": "node_modules/gulp/bin/gulp.js watch",
-    "watch": "npm-run-all -p watch:*"
+    "watch": "npm-run-all -p watch:*",
+    "w": "npm-run-all -p watch:*"
   },
   "author": "",
   "license": "ISC",
@@ -32,16 +33,17 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-clean-css": "^3.6.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.0.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-uglify": "^2.1.0",
-    "npm-run-all": "^4.1.2",
-    "webpack": "^4.27.0",
-    "webpack-cli": "^3.1.2"
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "npm-run-all": "^4.1.5",
+    "prettier-stylelint": "^0.4.2",
+    "stylelint-config-standard": "^18.2.0",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
   }
 }
