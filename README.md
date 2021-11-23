@@ -1,51 +1,54 @@
 # Construction of front-end development environment [Babel / libsass / Webpack / gulp]
 
-[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/sc-ariman/tool/blob/master/LICENSE)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/ariariasria
+/tool/blob/master/LICENSE)
 
 web develop environment.
 
 ## Overview
 
-- Serialize tasks
-- Compile with Scss libsass
-- Automatically add prefix with CSS Autoprefixer
-- Compress after CSS compilation
-- Manage JavaScript with JavaScript webpack
-- Compile ES6 with JavaScript Babel
-- Compression after JavaScript compilation
+Simple front-end development environment. Right for simple static site.
+
+- compile Scss nad ES6 Javascript
 
 ## Description
 
-/  
-┣ /frontend-dev-env - front develop  
-　 ┣ /assets  
-　　 ┣ /js  
-　　 ┗ /sass  
-　　　 ┣ /components  
-　　　 ┗ /page  
-　 ┣ .babelrc  - Version specification setting file when converting with babel  
-　 ┣ .editorconfig - Coding style setting file  
-　 ┣ .eslintrc - eslint configuration file  
-　 ┣ .stylelintrc.json - scss configuration file  
-　 ┣ gulpfile.babel.js - gulp configuration file  
-　 ┣ package.json - npm package configuration file  
+``` 
+┣ frontend-dev-env - front develop  
+　 ┣ assets  
+　　 ┣ js  
+　　 ┗ sass  
+　　　 ┣ components  
+　　　 ┗ page  
+　 ┣ .babelrc           - Version specification setting file when converting with babel  
+　 ┣ .editorconfig      - Coding style setting file  
+　 ┣ .eslintrc          - eslint configuration file  
+　 ┣ .stylelintrc.json  - scss configuration file  
+　 ┣ gulpfile.babel.js  - gulp configuration file  
+　 ┣ package.json       - package configuration file  
 　 ┣ README.md  
-　 ┗ webpack.config.js - webpack configuration file  
-┗ /www - Public directory  
-　 ┣ /assets  
-　　 ┣ /css  
-　　　 ┗ /page  
-　　 ┣ /js  
-　　　 ┗ /bundle  
-　　 ┗ /images  
+　 ┗ webpack.config.js  - webpack configuration file  
+┗ www - Public directory  
+　 ┣ assets  
+　　 ┣ bundle  
+　　 ┗ images  
 　 ┗ index.html  
-  
+```
+
 The paths to `css` and `js` which are published in each setting file are written.  
 Please change it if necessary.
 
 ## Requirement
 
-- [npm](https://www.npmjs.com) - [gulp](http://gulpjs.com/) - [webpack](https://webpack.github.io/) - [Babel](https://babeljs.io/)
+- [node-sass](https://www.npmjs.com/package/node-sass)
+- [webpack](https://webpack.github.io/)
+  - [DevServer](https://webpack.js.org/configuration/dev-server/)
+  - [mini-css-extract-plugin](https://webpack.js.org/plugins/mini-css-extract-plugin/)
+  - [optimize-css-assets-webpack-plugin](https://github.com/NMFR/optimize-css-assets-webpack-plugin)
+  - [webpack-remove-empty-scripts](https://github.com/webdiscus/webpack-remove-empty-scripts)
+  - [terser-webpack-plugin](https://webpack.js.org/plugins/terser-webpack-plugin/)
+  - [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/)
+- [Babel](https://babeljs.io/)
 
 ## Usage
 
@@ -70,20 +73,18 @@ $ yarn install
 Monitoring is started for scss and js files in public's assets directory.
 
 ```
-$ yarn run build
+$ yarn run dev
 ```
 
-You can create a filename.min.js file in the public's assets directory.
+### Dev Server
+
+liveReload and open browser.
 
 ```
-$ yarn run build-p
-```
-
-You can also watch with a single action
-
-```
-$ yarn run gulp
-$ yarn run webpack
+liveReload: true,
+compress: true,
+port: 8080,
+open: true
 ```
 
 ### SCSS
@@ -91,10 +92,7 @@ $ yarn run webpack
 If you save `/frontend-dev-env/assets/sass/style.scss` in the development directory with an editor,
 The following two files are generated.
 
-`/www/assets/css/style.css`
-`/www/assets/css/style.min.css`
-
-gulp-autoprefixer automatically prefixes
+`/www/assets/bundle/css/style.css`
 
 ### JavaScript
 
@@ -110,22 +108,24 @@ If you want to add files,
 `entry` of `webpack.config.js`
 
 ```
-   entry: {
-     app: '../www/assets/js/app.js',
-     hoge: '../www/assets/js/hoge.js',
-   },
+entry: {
+  app: '../www/assets/js/app.js',
+  something: '../www/assets/js/something.js',
+},
 ```
 
-Please add the name and path of `hoge: '../ www / assets / js / hoge.js'` and js file name as above.
+Please add the name and path of `something: '../www/assets/js/something.js'` and js file name as above.
 
 ## Install
 
-`$ git clone https://github.com/sc-ariman/frontend-dev-env.git`
+`$ git clone https://github.com/ariariasria
+/frontend-dev-env.git`
 
 ## Licence
 
-[MIT](https://github.com/sc-ariman/tool/blob/master/LICENSE)
+[MIT](https://github.com/ariariasria
+/tool/blob/master/LICENSE)
 
 ## Author
 
-[@arima7th](https://twitter.com/arima7th)
+[@ariariasria](https://github.com/ariariasria)

@@ -1,14 +1,12 @@
 {
   "env": {
-    "es6": true
+    "browser": true,
+    "es2021": true
   },
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
-    "allowImportExportEverywhere": true
-  },
-  "extends": ["semistandard"],
-  "rules": {
-    "camelcase": 0
+    "allowImportExportEverywhere": true,
+    "ecmaVersion": 12
   }
 }
