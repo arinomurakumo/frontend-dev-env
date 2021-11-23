@@ -1,9 +1,8 @@
-# Construction of front-end development environment [Babel / libsass / Webpack / gulp]
+# Simple Front-end Development Environment
 
-[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/ariariasria
-/tool/blob/master/LICENSE)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/ariariasria/tool/blob/master/LICENSE)
 
-web develop environment.
+web develop environment. Babel / libsass / Webpack
 
 ## Overview
 
