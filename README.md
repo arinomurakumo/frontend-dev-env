@@ -122,8 +122,7 @@ Please add the name and path of `something: '../www/assets/js/something.js'` and
 
 ## Licence
 
-[MIT](https://github.com/ariariasria
-/tool/blob/master/LICENSE)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/ariariasria/tool/blob/master/LICENSE)
 
 ## Author
 
