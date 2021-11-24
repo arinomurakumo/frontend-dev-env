@@ -8,7 +8,7 @@ web develop environment. Babel / libsass / Webpack
 
 Simple front-end development environment. Right for simple static site.
 
-- compile Scss nad ES6 Javascript
+- compile Scss and ES6 Javascript
 
 ## Description
 
@@ -117,8 +117,7 @@ Please add the name and path of `something: '../www/assets/js/something.js'` and
 
 ## Install
 
-`$ git clone https://github.com/ariariasria
-/frontend-dev-env.git`
+`$ git clone https://github.com/ariariasria/frontend-dev-env.git`
 
 ## Licence
 
