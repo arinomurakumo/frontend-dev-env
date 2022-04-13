@@ -1,8 +1,7 @@
-@charset "UTF-8";
-//@import 'import';
-@import 'variables';
-@import 'mixins';
-@import 'reset';
-@import 'components';
-@import 'common';
-//@import 'page';
+@charset 'UTF-8';
+//@use 'import';
+@use 'global';
+@use 'reset';
+@use 'components';
+@use 'common';
+//@use 'page';

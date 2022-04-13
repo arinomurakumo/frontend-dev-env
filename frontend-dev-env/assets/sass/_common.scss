@@ -1,54 +1,55 @@
-@charset "UTF-8";
+@charset 'UTF-8';
+@use 'global' as *;
 
 // -----------------------------------------------
 // all
 // -----------------------------------------------
 html {
-    height: 100%;
-    min-height: 100%;
+  height: 100%;
+  min-height: 100%;
 
-    @include sm {
-        @include fluid-type(font-size, 769px, 1280px, 8px, 16px);
-    }
+  @include sm {
+    @include fluid-type(font-size, 769px, 1280px, 8px, 16px);
+  }
 
-    @include mt {
-        @include fluid-type(font-size, 320px, 768px, 12px, 30px);
-    }
+  @include mt {
+    @include fluid-type(font-size, 320px, 768px, 12px, 30px);
+  }
 }
 
 body {
-    @include fontfamily-sansserif();
+  @include fontfamily-sansserif();
 
-    width: 100%;
-    height: 100%;
-    min-height: 100%;
-    line-height: 1.5;
-    background: $base_color;
-    color: $font_color;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  line-height: 1.5;
+  background: $base_color;
+  color: $font_color;
 }
 
 a {
-    color: $link_color;
-    text-decoration: none;
+  color: $link_color;
+  text-decoration: none;
 }
 
 a,
 button {
-    &:hover {
-        cursor: pointer;
-        opacity: .8;
-    }
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 }
 
 img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    border: 0;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 0;
 }
 
 figure {
-    line-height: 0;
+  line-height: 0;
 }
 
 // -----------------------------------------------
@@ -56,50 +57,50 @@ figure {
 // -----------------------------------------------
 // block
 .dsn {
-    display: none !important;
+  display: none !important;
 }
 
 // clearfix
 .clear {
-    clear: both;
+  clear: both;
 }
 
 .cf {
-    display: block;
+  display: block;
 
-    &::after {
-        clear: both;
-        visibility: hidden;
-        display: block;
-        height: 0;
-        content: '';
-    }
+  &::after {
+    clear: both;
+    visibility: hidden;
+    display: block;
+    height: 0;
+    content: '';
+  }
 }
 
 // display
 .mb--on {
-    @include sm {
-        display: none;
-    }
+  @include sm {
+    display: none;
+  }
 }
 
 .mb--off {
-    @include mt {
-        display: none;
-    }
+  @include mt {
+    display: none;
+  }
 }
 
 // text-aline
 .tac {
-    text-align: center;
+  text-align: center;
 }
 
 .tar {
-    text-align: right;
+  text-align: right;
 }
 
 .tal {
-    text-align: left;
+  text-align: left;
 }
 
 // -----------------------------------------------

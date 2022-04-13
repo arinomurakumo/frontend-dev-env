@@ -1,31 +1,32 @@
 @charset 'UTF-8';
+@use 'global' as *;
 
 // -----------------------------------------------
 // reset
 // -----------------------------------------------
 * {
-    margin: 0;
-    padding: 0;
-    text-size-adjust: 100%;
-    box-sizing: border-box;
-    font-size: inherit;
-    font-style: inherit;
-    font-weight: inherit;
+  margin: 0;
+  padding: 0;
+  text-size-adjust: 100%;
+  box-sizing: border-box;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
 }
 
 img {
-    border: none;
+  border: none;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 caption,
 th,
 td {
-    text-align: left;
-    vertical-align: middle;
+  text-align: left;
+  vertical-align: middle;
 }
 
 code,
@@ -33,13 +34,13 @@ kbd,
 pre,
 samp,
 tt {
-    font-family: monospace;
-    line-height: 100%;
+  font-family: monospace;
+  line-height: 100%;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 button,
@@ -50,13 +51,13 @@ label,
 legend,
 select,
 textarea {
-    border: 0;
-    background: none;
-    font-family: inherit;
-    font-style: inherit;
-    font-weight: inherit;
-    vertical-align: baseline;
-    appearance: none;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  vertical-align: baseline;
+  appearance: none;
 }
 
 input:active,
@@ -67,14 +68,14 @@ button:active,
 button:focus,
 a:active,
 a:focus {
-    @include mt {
-        outline: 0;
-    }
+  @include mt {
+    outline: 0;
+  }
 }
 
 q::before,
 q::after {
-    content: '';
+  content: '';
 }
 
 article,
@@ -90,14 +91,14 @@ menu,
 nav,
 section,
 main {
-    display: block;
-    word-wrap: break-word;
+  display: block;
+  word-wrap: break-word;
 }
 
 // chorome
 input:-webkit-autofill,
 textarea:-webkit-autofill {
-    box-shadow: 0 0 0 1000px transparent inset;
+  box-shadow: 0 0 0 1000px transparent inset;
 }
 
 /*!
@@ -105,148 +106,148 @@ textarea:-webkit-autofill {
     https://github.com/filipelinhares/ress
 */
 audio:not([controls]) {
-    display: none;
-    height: 0;
+  display: none;
+  height: 0;
 }
 
 hr {
-    overflow: visible;
+  overflow: visible;
 }
 
 [hidden],
 template {
-    display: none;
+  display: none;
 }
 
 abbr[title] {
-    border-bottom: 1px dotted;
-    text-decoration: none;
+  border-bottom: 1px dotted;
+  text-decoration: none;
 }
 
 a {
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
 }
 
 a:active,
 a:hover {
-    outline-width: 0;
+  outline-width: 0;
 }
 
 b,
 strong {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 dfn {
-    font-style: italic;
+  font-style: italic;
 }
 
 sub,
 sup {
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sub {
-    bottom: -.25em;
+  bottom: -0.25em;
 }
 
 sup {
-    top: -.5em;
+  top: -0.5em;
 }
 
 input {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 [type='search'] {
-    -webkit-appearance: textfield;
-    outline-offset: -2px;
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
 }
 
 [type='search']::-webkit-search-cancel-button,
 [type='search']::-webkit-search-decoration {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 textarea {
-    overflow: auto;
-    resize: vertical;
+  overflow: auto;
+  resize: vertical;
 }
 
 optgroup {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 button {
-    overflow: visible;
+  overflow: visible;
 }
 
 button,
 html [type='button'],
 [type='reset'],
 [type='submit'] {
-    -webkit-appearance: button;
+  -webkit-appearance: button;
 }
 
 button,
 select {
-    text-transform: none;
+  text-transform: none;
 }
 
 button,
 input,
 select,
 textarea {
-    background-color: transparent;
-    border-style: none;
-    color: inherit;
+  background-color: transparent;
+  border-style: none;
+  color: inherit;
 }
 
 select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 select::-ms-expand {
-    display: none;
+  display: none;
 }
 
 select::-ms-value {
-    color: currentColor;
+  color: currentColor;
 }
 
 legend {
-    border: 0;
-    color: inherit;
-    display: table;
-    max-width: 100%;
-    white-space: normal;
+  border: 0;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  white-space: normal;
 }
 
 ::-webkit-file-upload-button {
-    -webkit-appearance: button;
-    font: inherit;
+  -webkit-appearance: button;
+  font: inherit;
 }
 
 ::-webkit-input-placeholder {
-    color: inherit;
-    opacity: .54;
+  color: inherit;
+  opacity: 0.54;
 }
 
 progress {
-    vertical-align: baseline;
+  vertical-align: baseline;
 }
 
 svg:not(:root) {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 audio,
 canvas,
 progress,
 video {
-    display: inline-block;
+  display: inline-block;
 }
