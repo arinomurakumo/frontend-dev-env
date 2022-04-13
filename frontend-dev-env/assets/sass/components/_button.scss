@@ -1,10 +1,11 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 // -----------------------------------------------
 // Button
 // -----------------------------------------------
 .btn {
-    &:hover {
-        opacity: .8;
-    }
+  &:hover {
+    /* stylelint-disable-next-line prettier/prettier */
+    opacity: .8;
+  }
 }
