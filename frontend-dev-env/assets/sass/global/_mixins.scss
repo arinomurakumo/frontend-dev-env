@@ -1,3 +1,4 @@
+/* stylelint-disable scss/operator-no-newline-after */
 @charset 'UTF-8';
 
 // -----------------------------------------------
@@ -61,7 +62,7 @@
 // font
 @mixin fontfamily-serif() {
   font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝',
-    'Yu Mincho', '游明朝体', 'YuMincho', 'ＭＳ Ｐ明朝', 'MS PMincho', serif;
+    'Yu Mincho', '游明朝体', YuMincho, 'ＭＳ Ｐ明朝', 'MS PMincho', serif;
 }
 
 @mixin fontfamily-sansserif() {
@@ -79,9 +80,9 @@
     @each $property in $properties {
       #{$property}: calc(
         #{$min-value} +
-          #{strip-unit($max-value - $min-value)} *
-          (100vw - #{$min-vw}) /
-          #{strip-unit($max-vw - $min-vw)}
+        #{strip-unit($max-value - $min-value)} *
+        (100vw - #{$min-vw}) /
+        #{strip-unit($max-vw - $min-vw)}
       );
     }
   }
@@ -100,14 +101,6 @@
 // accessory
 @mixin placeholder-color($color) {
   &:placeholder-shown {
-    color: $color;
-  }
-
-  &::-webkit-input-placeholder {
-    color: $color;
-  }
-
-  &:-ms-input-placeholder {
     color: $color;
   }
 }
